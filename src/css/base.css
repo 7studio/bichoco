@@ -1,0 +1,126 @@
+
+/*
+ * @base
+ *
+ * Réinitialisation de l'apparence des éléments HTML
+ * ===
+ *
+ * Ne nous embarassons pas avec des choses inutiles !
+ *
+ * ## Ressources
+ *
+ * - http://tantek.com/log/2004/undohtml.css
+ * - http://meyerweb.com/eric/tools/css/reset/reset.css
+ */
+
+:root {
+  --base-color: #000;
+  --base-background-color: #fff;
+}
+
+
+
+/*
+ * 1. Spécifie de façon arbitraire certaines bases.
+ *    cf. : https://github.com/h5bp/html5-boilerplate/pull/1343
+ */
+html {
+  color: var(--base-color); /* 1 */
+  font-family: sans-serif; /* 1 */
+  background-color:  var(--base-background-color); /* 1 */
+}
+
+/*
+ * 1. …
+ *    cf. : http://meyerweb.com/eric/thoughts/2010/02/12/fixed-monospace-sizing/
+ */
+pre,
+code,
+kbd,
+samp {
+  font-size: 1em; /* 1 */
+  font-family: monospace, sans-serif; /* 1 */
+}
+
+/*
+ * 1. Définit la hauteur de la ligne à un pixel.
+ */
+hr {
+  margin-top: 0;
+  margin-bottom: 0;
+  border-width: 1px 0 0; /* 1 */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+dl,
+table {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+blockquote {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+dd {
+  margin-left: 0;
+}
+
+ol,
+ul {
+  list-style-type: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+/*
+ * 1. Supprime les bordures définies dans le fichier `html.css`.
+ */
+th,
+td {
+  border: 0; /* 1 */
+  padding: 0;
+}
+
+/*
+ * 1. Prend la couleur de son élément parent.
+ */
+a {
+  color: inherit; /* 1 */
+  text-decoration: none;
+}
+
+/*
+ * 1. Retire l'espace indésirable sous les éléments HTML
+ *    (`<img>`, `<iframe>` et `<object>`) lorsque ces derniers sont
+ *    le seul contenu d'un autre élément HTML.
+ *    cf. : http://www.alsacreations.com/astuce/lire/52-espaces-sous-les-images.html
+ */
+img,
+iframe,
+object {
+  vertical-align: bottom; /* 1 */
+}
+
+iframe {
+  border: 0;
+}
+
+/*
+ * 1. Ne dessine pas les contours des éléments ne pouvant pas
+ *    recevoir le focus au clavier ou les éléments recevant le focus
+ *    par programmation.
+ */
+[tabindex="-1"]:focus {
+  outline: none !important; /* 1 */
+}

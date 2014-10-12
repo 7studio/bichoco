@@ -1,0 +1,97 @@
+
+/*
+ * @component
+ *
+ * Navigations
+ * ===
+ *
+ * …
+ *
+ * ## Ressources
+ *
+ * - https://github.com/csswizardry/inuit.css/blob/master/objects/_nav.scss
+ *
+ * ## Exemple HTML
+ *
+ * ```
+ * <div class="nav">
+ *     <strong class="nav-name">{{ titre }}</strong>
+ *     <ul class="nav-list [nav-list--modifier]">
+ *         <li><a href="{{ url }}">{{ texte }}</a></li>
+ *         <li><a href="{{ url }}">{{ texte }}</a></li>
+ *         <li><a href="{{ url }}">{{ texte }}</a></li>
+ *     </ul>
+ * </div>
+ * ```
+ */
+
+:root {
+  --nav-default-separator: "\0A0-\0A0";
+}
+
+
+
+/*
+ * 1. …
+ */
+.nav-list {
+  margin: 0; /* 1 */
+  padding: 0; /* 1 */
+}
+/*
+ * 1. …
+ */
+.nav-list > li {
+  display: block; /* 1 */
+}
+
+/*
+ * Modificateur : affiche horizontalement le contenu de la navigation.
+ */
+.nav-list--inline {
+  white-space: nowrap;
+}
+.nav-list--inline > li {
+  display: inline-block;
+  white-space: normal;
+  vertical-align: top;
+}
+
+/*
+ * Modificateur : affiche horizontalement le contenu de la navigation et sépare
+ * chaque entrée avec un séparateur défini.
+ */
+.nav-list--separate {
+  white-space: nowrap;
+}
+.nav-list--separate > li {
+  display: inline-block;
+  white-space: normal;
+  vertical-align: top;
+}
+.nav-list--separate > li::after {
+  content: var(--nav-default-separator, "\0A0-\0A0");
+}
+.nav-list--separate > li:last-child::after {
+  content: normal;
+}
+
+/*
+ * Modificateur : affiche horizontalement le contenu de la navigation
+ * en distribuant les élements sur toute la largeur disponible.
+ */
+.nav-list--fill {
+  display: table;
+  width: 100%;
+}
+.nav-list--fill > li {
+  display: table-cell;
+  text-align: center;
+}
+
+/*
+ * Modificateur : affichage vertical.
+ */
+.nav-list--stack > li > a {
+  display: block;
+}

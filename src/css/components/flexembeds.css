@@ -1,0 +1,58 @@
+
+/*
+ * @component
+ *
+ * Contenus interactifs flexibles
+ * ===
+ *
+ * …
+ *
+ * ## Ressources
+ *
+ * - http://bichococss.tumblr.com/post/62343330422/remplacement-responsive-dimage-en-css
+ * - https://github.com/suitcss/flex-embed
+ * - http://fitvidsjs.com/
+ *
+ * ## Exemple HTML
+ *
+ * ```
+ * <div class="flexEmbed [flexEmbed--modifier]">
+ *     {{ iframe | object | img }}
+ * </div>
+ * ```
+ */
+
+
+
+.flexEmbed {
+  position: relative;
+  overflow: hidden;
+}
+.flexEmbed::before {
+  display: block;
+  width: 100%;
+  content: "";
+}
+.flexEmbed iframe,
+.flexEmbed object,
+.flexEmbed img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*
+ * Modificateur : format 16:9.
+ */
+.flexEmbed--16by9::before {
+  padding-top: 56.25%;
+}
+
+/*
+ * Modificateur : format 4:3.
+ */
+.flexEmbed--4by3::before  {
+  padding-top: 75%;
+}

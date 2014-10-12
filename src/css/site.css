@@ -1,0 +1,121 @@
+
+/*
+ * @site
+ *
+ * Styles communs à tous les templates du site
+ * ===
+ *
+ * …
+ */
+
+:root {
+  --site-color: #000;
+  --site-font-size: 14px;
+  --site-line-height: 1.375;
+  --site-background-color: #fff;
+}
+
+
+
+html {
+  color: var(--site-color);
+  font-size: var(--site-font-size);
+  background-color: var(--site-background-color);
+}
+.site {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  font-size: 1em;
+  line-height: var(--site-line-height);
+  font-family: Arial, Helvetica, Freesans, sans-serif;
+}
+
+/*
+ * Navigation d'échappement
+ * ---
+ *
+ * …
+ *
+ * NOTE :
+ * Cet élément ne semble pas fonctionner correctement dans Chrome.
+ *
+ * cf. :
+ * - https://code.google.com/p/chromium/issues/detail?id=37721
+ * - http://www.nczonline.net/blog/2013/01/15/fixing-skip-to-content-links/
+ */
+.site-skipNav {
+  position: absolute;
+}
+.site-skipNav .nav-list a {
+  position: relative;
+  top: -10001px;
+}
+.site-skipNav .nav-list a:focus {
+  position: static;
+}
+
+/*
+ * @element
+ *
+ * Organisation
+ * ---
+ *
+ * …
+ *
+ * cf. :
+ * - http://googlewebmastercentral.blogspot.fr/2013/05/using-schemaorg-markup-for-organization.html
+ */
+ .site-organisation {  }
+
+/*
+ * @element
+ *
+ * Moteur de recherche principal du site
+ * ---
+ *
+ * …
+ *
+ * 1. …
+ * 2. …
+ */
+.site-search {
+  position: relative;
+  border: 1px solid;
+}
+.site-search fieldset {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+.site-search input::-moz-focus-inner,
+.site-search button::-moz-focus-inner {
+  border: 0 !important; /* 1 */
+  padding: 0 !important; /* 1 */
+}
+.site-search input {
+  box-sizing: border-box;
+  display: block;
+  margin: 0;
+  border: 0;
+  width: 100%;
+  height: 2.06em;
+  padding-right: calc(10px + 2.06em);
+  padding-left: 10px;
+  font-size: inherit; /* 2 */
+  font-family: inherit; /* 2 */
+  line-height: 2.06em\9;
+}
+.site-search button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  border: 0;
+  width: 2.06em;
+  padding: 2.06em 0 0;
+  overflow: hidden;
+  background: currentColor;
+  cursor: pointer;
+}

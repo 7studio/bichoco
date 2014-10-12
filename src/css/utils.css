@@ -1,0 +1,272 @@
+
+/*
+ * @utilities
+ *
+ * …
+ * ===
+ *
+ * …
+ *
+ * ## Ressources
+ *
+ *  - https://github.com/suitcss/utils-display
+ *  - https://github.com/suitcss/utils-text
+ */
+
+
+
+/*
+ * Contient les éléments flottants
+ * ---
+ *
+ * …
+ * cf. :
+ * - http://nicolasgallagher.com/micro-clearfix-hack/
+ * - https://developer.mozilla.org/fr/docs/Web/CSS/Block_formatting_context
+ */
+.u-cf::after {
+  clear: both;
+  display: block;
+  content: "";
+}
+.u-cfAlt {
+  overflow: hidden !important;
+}
+
+
+
+/*
+ * Masque le contenu de manière "accessible"
+ * ---
+ *
+ * …
+ * cf. : http://www.cssmojo.com/hide-content-from-sighted-users/
+ */
+.u-hidden {
+  position: absolute !important;
+  border: 0 !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+}
+
+
+
+/*
+ * …
+ * ---
+ *
+ * …
+ */
+.u-posRelative {
+  position: relative !important;
+}
+
+
+
+/*
+ * Rendus de boîte
+ * ---
+ *
+ * …
+ *
+ * 1. Fixe le bug 932996 : https://bugzilla.mozilla.org/show_bug.cgi?id=932996
+ */
+.u-dispInlineBlock {
+  display: inline-block !important;
+  max-width: 100%; /* 1 */
+}
+.u-dispInline {
+  display: inline !important;
+}
+.u-dispBlock {
+  display: block !important;
+}
+.u-dispTableCell {
+  display: table-cell !important;
+}
+
+
+
+/*
+ * Floats
+ * ---
+ *
+ * …
+ */
+.u-floatLeft  {
+  float: left !important;
+}
+.u-floatRight {
+  float: right !important;
+}
+
+
+
+/*
+ * Alignement vertical et/ou horizontal des éléments
+ * ---
+ *
+ * …
+ */
+.u-valignTop {
+  vertical-align: top !important;
+}
+.u-valignMiddle {
+  vertical-align: middle !important;
+}
+.u-valignBottom {
+  vertical-align: bottom !important;
+}
+.u-valignBaseline {
+  vertical-align: baseline !important;
+}
+
+.u-alignRight {
+  margin-left: auto !important;
+}
+.u-alignLeft {
+  margin-right: auto !important;
+}
+.u-alignCenter {
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+
+
+/*
+ * Alignement horizontal des lignes de texte
+ * ---
+ *
+ * …
+ */
+.u-textRight {
+  text-align: right !important;
+}
+.u-textLeft {
+  text-align: left !important;
+}
+.u-textCenter {
+  text-align: center !important;
+}
+.u-textJustify {
+  text-align: justify !important;
+}
+
+
+
+/*
+ * Rognage des lignes de texte
+ * ---
+ *
+ * …
+ *
+ * 1. …
+ * 2. …
+ */
+.u-clipText {
+  max-width: 100%; /* 1 */
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  word-wrap: normal !important;
+  text-overflow: ellipsis !important; /* 2 */
+}
+
+
+
+/*
+ * …
+ * ---
+ *
+ * …
+ */
+.u-sizeFull {
+  width: 100% !important;
+}
+.u-sizeAuto {
+  width: auto !important;
+}
+
+.u-size1of2 {
+  width: 50% !important;
+}
+.u-size1of2 {
+  width: 50% !important;
+}
+.u-size1of3 {
+  width: 33.33% !important;
+  width: calc(100% * 1 / 3) !important;
+}
+.u-size2of3 {
+  width: 66.67%;
+  width: calc(100% * 2 / 3) !important;
+}
+.u-size1of4 {
+  width: 25% !important;
+}
+.u-size3of4 {
+  width: 75% !important;
+}
+.u-size1of5 {
+  width: 20% !important;
+}
+.u-size2of5 {
+  width: 40% !important;
+}
+.u-size3of5 {
+  width: 60% !important;
+}
+.u-size4of5 {
+  width: 80% !important;
+}
+.u-size1of6 {
+  width: 16.67%;
+  width: calc(100% * 1 / 6) !important;
+}
+.u-size5of6 {
+  width: 83.33%;
+  width: calc(100% * 5 / 6) !important;
+}
+.u-size1of8 {
+  width: 12.5% !important;
+}
+.u-size3of8 {
+  width: 37.5% !important;
+}
+.u-size5of8 {
+  width: 62.5% !important;
+}
+.u-size7of8 {
+  width: 87.5% !important;
+}
+.u-size1of10 {
+  width: 10% !important;
+}
+.u-size3of10 {
+  width: 30% !important;
+}
+.u-size7of10 {
+  width: 70% !important;
+}
+.u-size9of10 {
+  width: 90% !important;
+}
+.u-size1of12 {
+  width: 8.33%;
+  width: calc(100% * 1 / 12) !important;
+}
+.u-size5of12 {
+  width: 41.67%;
+  width: calc(100% * 5 / 12) !important;
+}
+.u-size7of12 {
+  width: 58.33%;
+  width: calc(100% * 7 / 12) !important;
+}
+.u-size11of12 {
+  width: 91.67%;
+  width: calc(100% * 11 / 12) !important;
+}

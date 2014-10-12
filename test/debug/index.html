@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <title>Bichoco : tests du fichier `debug.css`</title>
+        <meta name="description" content="">
+        <link rel="canonical" href="http://7studio.github.io/bichoco/test/debug/">
+        <link rel="stylesheet" href="test.css">
+        <style>
+          .Test-run {
+            min-height: 50px;
+          }
+        </style>
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Bichoco : tests du fichier `debug.css`">
+        <meta name="twitter:description" content="">
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="" />
+        <meta property="fb:admins" content="0000000" />
+    </head>
+    <body>
+
+        <div class="Test">
+            <h1 class="Test-title">Bichoco&nbsp;: tests du fichier <a href="https://github.com/7studio/bichoco/src/css/debug.css" target="_blank"><code>debug.css</code></a></h1>
+
+            <h2 class="Test-describe">Imbrications HTML non-autorisées</h2>
+            <h3 class="Test-it">Marque l'élément HTML qui n'est pas autorisé comme enfant des éléments HTML <code>&lt;dl&gt;</code></h3>
+            <div class="Test-run">
+                <dl>
+                    <h5>Firefox (est dans un élément HTML <code>&lt;h5&gt;</code>)</h5>
+                    <dt>Mozilla Firefox</dt>
+                    <dd>Un navigateur Web libre, open-source, multi-plateforme dévelopé par la Mozilla Corporation et des centaines de volontaires.</dd>
+                </dl>
+            </div>
+            <h3 class="Test-it">Marque les éléments HTML qui ne sont pas autorisés comme enfant des éléments HTML <code>&lt;ul&gt;</code> et <code>&lt;ol&gt;</code></h3>
+            <div class="Test-run">
+                <ul>
+                    <div>Premier élément de la liste est un élément HTML <code>&lt;div&gt;</code></div>
+                    <li><div>Deuxième élément de la liste</div></li>
+                </ul>
+                <ol>
+                    <li><div>Premier élément de la liste</div></li>
+                    <ul>
+                        <li>Deuxième élément de la liste est un élément HTML <code>&lt;ul&gt;</code></li>
+                    </ul>
+                </ol>
+            </div>
+
+            <h2 class="Test-describe">Éléments HTML obsolètes</h2>
+            <h3 class="Test-it">Marque l'élément HTML <code>&lt;acronym&gt;</code> pour informer que son utilisation est découragée</h3>
+            <div class="Test-run">
+                <p>Le <acronym title="World Wide Web" lang="en">WWW</acronym> n'est qu'une facette d'Internet.</p>
+            </div>
+
+            <h2 class="Test-describe">Attributs globaux vides</h2>
+            <h3 class="Test-it">Identifie que l'élément HTML possède un attribut global énuméré dont la valeur est une chaine vide<br><code>accesskey</code>, <code>class</code>, <code>dir</code>, <code>id</code>, <code>lang</code>, <code>tabindex</code>, <code>title</code>, <code>style</code></h3>
+            <div class="Test-run">
+                <p dir="" class="u1"><b><bdi>Student</bdi>:</b> How do you write "What's your name?" in Arabic?</p>
+                <p dir="auto" class=""><b><bdi>Teacher</bdi>:</b> ما اسمك؟</p>
+            </div>
+
+            <h2 class="Test-describe">Événements JavaScript via un attribut HTML</h2>
+            <h3 class="Test-it">Marque qu'un évènement JavaScript est attaché à l'élément HTML via un attibut HTML<br><code>onblur</code>, <code>onchange</code>, <code>onclick</code>, <code>onfocus</code>, <code>onsubmit</code></h3>
+            <div class="Test-run">
+                <p><span onclick="alert('Wouallez !');">Je suis un bouton</span>.</p>
+            </div>
+
+            <h2 class="Test-describe">Attribut HTML <code>style</code></h2>
+            <h3 class="Test-it">Marque que l'élément HTML contient des déclarations de style CSS à appliquer via l'attribut <code>style</code></h3>
+            <div class="Test-run">
+                <p style="font-size: 12pt; color: fuchsia">Les feuilles de style ne sont-elles pas merveilleuses ?</p>
+            </div>
+
+            <h2 class="Test-describe">…</h2>
+            <h3 class="Test-it"><code>abbr:not([title])</code>, <code>abbr[title=""]</code></h3>
+            <div class="Test-run">
+                <p lang="en">David Cameron is the <abbr>UK</abbr>'s prime minister</p>
+            </div>
+            <h3 class="Test-it"><code>q:not([cite])</code>, <code>q[cite=""]</code></h3>
+            <div class="Test-run">
+
+            </div>
+
+            <h2 class="Test-describe"><code>Éléments HTML <code>&lt;img&gt;</code></h2>
+            <h3 class="Test-it">Marque que l'élément ne posséde pas d'attribut HTML <code>alt</code></h3>
+            <div class="Test-run">
+                <img src="http://dummyimage.com/100x100" />
+                <span></span>
+            </div>
+            <h3 class="Test-it">Identifie que l'élément utilise un attribut HTML <code>alt</code> dont la valeur est une chaine vide</h3>
+            <div class="Test-run">
+                <img src="http://dummyimage.com/100x100&text=alt=''" alt="" />
+                <img src="http://dummyimage.com/100x100&text=alt=' '" alt=" " />
+                <span></span>
+            </div>
+            <h3 class="Test-it">Identifie que l'élément possède au moins un attribut énuméré dont la valeur est une chaine vide<br><code>width</code>, <code>height</code>, <code>usemap</code></h3>
+            <div class="Test-run">
+                <img src="http://dummyimage.com/100x100" width="" alt="100x100" />
+                <span></span>
+            </div>
+            <h3 class="Test-it">Informe que l'élément utilise une URL absolue comme source de l'image</h3>
+            <div class="Test-run">
+                <img src="//dummyimage.com/100x100&text=src^=" alt="100x100" />
+                <img src="http://dummyimage.com/100x100&text=src^=http" alt="100x100" />
+                <span></span>
+            </div>
+
+            <h2 class="Test-describe"><code>Éléments HTML <code>&lt;a&gt;</code></h2>
+            <h3 class="Test-it">Marque que l'élément ne posséde pas l'attribut HTML <code>href</code></h3>
+            <div class="Test-run">
+                <a>google.fr</a>
+            </div>
+            <h3 class="Test-it">Identifie que l'élément indique une cible interne au document inexistante ou inconnue.</h3>
+            <div class="Test-run">
+                <a href="">google.fr</a>
+                <br>
+                <br>
+                <a href="#">google.fr</a>
+            </div>
+            <h3 class="Test-it">Identifie que l'élément possède au moins un attribut énuméré dont la valeur est une chaine vide<br><code>target</code>, <code>type</code>, <code>hreflang</code>, <code>rel</code></h3>
+            <div class="Test-run">
+                <a href="http://google.fr" rel="">google.fr</a>
+            </div>
+            <h3 class="Test-it">Marque que l'élément utilise le schéma d'URI non officiel <code>javascript:</code></h3>
+            <div class="Test-run">
+                <a href="javascript:alert('Wouallez !');">Je suis un bouton</a>
+            </div>
+            <h3 class="Test-it">Informe que l'élément définit un hyperlien vers une ressource externe sans indiquer où afficher la ressource liée</h3>
+            <div class="Test-run">
+                <a href="//google.fr">google.fr</a>
+            </div>
+            <h3 class="Test-it">Informe que l'internaute n'est peut-être pas clairement averti du fait qu'il va quitter le service en ligne qu'il est en train de visiter</h3>
+            <div class="Test-run">
+                <a href="http://google.fr" target="_self">google.fr</a>
+            </div>
+            <h3 class="Test-it">Affiche une infobulle pour visualiser la valeur de l'attribut HTML <code>href</code></h3>
+            <div class="Test-run">
+                <a href="http://www.7studio.fr/" target="_blank">7studio.fr</a>
+                <br>
+                <br>
+                <a href="https://github.com">github.com</a>
+                <br>
+                <br>
+                <a href="mailto:mail@domain.com">mail[at]domain[dot]com</a>
+                <br>
+                <br>
+                <a href="tel:<phonenumber>">+33 0 …</a>
+            </div>
+        </div>
+
+    </body>
+</html>

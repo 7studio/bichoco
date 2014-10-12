@@ -1,0 +1,251 @@
+
+/*
+ * @component
+ *
+ * Grilles
+ * ===
+ *
+ * Composant de grilles basé sur les déclarations CSS `display: inline-block`
+ * et `box-sizing: border-box` comme il en existe beaucoup.
+ * Mais tous n'ont pas un "mode debug" !
+ *
+ * NOTE : l'utilisation de ce composant requiert un code HTML monoligné afin
+ * d'éviter l'utilisation d'un **hack foireux** pour pallier aux espaces indésirables.
+ * cf. : http://www.alsacreations.com/astuce/lire/1432-display-inline-block-espaces-indesirables.html
+ *
+ * ## Dépendances
+ *
+ * - utils/sizes.css
+ *
+ * ## Ressources
+ *
+ * - https://github.com/necolas/griddle
+ * - https://github.com/csswizardry/csswizardry-grids
+ * - http://www.barrelny.com/blog/text-align-justify-and-rwd/
+ *
+ * ## Exemple HTML
+ *
+ * ```
+ * <div class="grid [grid--modifier]">
+ *     <div class="grid-item [grid-item--modifier] u-sizeXofY">
+ *         {{ contenu }}
+ *     </div>
+ *     <div class="grid-item [grid-item--modifier] u-sizeXofY">
+ *         {{ contenu }}
+ *     </div>
+ *     <div class="grid-item [grid-item--modifier] u-sizeXofY">
+ *         {{ contenu }}
+ *     </div>
+ * </div>
+ * ```
+ */
+
+:root {
+  --grid-hspacing: 10px;
+  --grid-vspacing: calc(0.5 * var(--base-line-height, 0));
+}
+
+
+
+/*
+ * Conteneur de grille
+ * ---
+ *
+ * …
+ *
+ * 1. Assure un alignement des éléments de la grille par défaut.
+ */
+.grid {
+  display: block;
+  margin: calc(-1 * var(--grid-vspacing, 0)) calc(-1 * var(--grid-hspacing, 0));
+  padding: 0;
+  text-align: left; /* 1 */
+  direction: ltr;
+}
+
+/*
+ * Modificateur : aligne tous les éléments de la grille à gauche.
+ */
+.grid--itemsLeft {
+  text-align: left;
+}
+
+/*
+ * Modificateur : aligne tous les éléments de la grille à droite.
+ */
+.grid--itemsRight {
+  text-align: right;
+}
+
+/*
+ * Modificateur : centre horizontalement tous les éléments de la grille.
+ */
+.grid--itemsCenter {
+  text-align: center;
+}
+
+/*
+ * Modificateur : …
+ *
+ * NOTE : l'usage de ce modificateur nécessite l'insertion d'un espace (`&#32;`)
+ * entre chaque élément de la grille.
+ * De plus, la remise à zero des propriétés CSS `font-size` et `line-height`
+ * demandera une redéfinition spécifique dans chaque contexte d'utilisation.
+ *
+ * 1. Cache l'espace justifié en fin de ligne.
+ * 2. Retire la hauteur de ligne occupée par le pseudo-élément. Nécessaire dans
+ *    le cas où un parent aurait un `line-height` défini avec une unité.
+ * 3. Fixe le mauvais comportement d'IE > 8 introduit par `font-size: 0;`.
+ * 4. Rétablit les valeurs nécessaires à la lecture du contenu.
+ */
+.grid--itemsJustify {
+  font-size: 0; /* 1 */
+  line-height: 0; /* 2 */
+  text-align: justify;
+  text-justify: distribute-all-lines; /* 3 */
+}
+.grid--itemsJustify:after {
+  display: inline-block;
+  width: 100%;
+  content: "";
+}
+.grid--itemsJustify > .grid-item {
+  font-size: var(--base-font-size, 1rem); /* 4 */
+  line-height: var(--base-line-height, normal); /* 4 */
+}
+
+/*
+ * Modificateur : aligne le milieu des éléments de la grille avec le milieu
+ * des lettres bas de casse du conteneur.
+ */
+.grid--itemsMiddle > .grid-item {
+  vertical-align: middle;
+}
+
+/*
+ * Modificateur : aligne le bas des éléments de la grille et de ses descendants
+ * avec le bas de la ligne entière.
+ */
+.grid--itemsBottom > .grid-item {
+  vertical-align: bottom;
+}
+
+/*
+ * Modificateur : renverse l'ordre d'affichage des éléments de la grille.
+ */
+.grid--reversed {
+  direction: rtl;
+}
+.grid--reversed > .grid-item {
+  direction: ltr;
+}
+
+/*
+ * Modificateur : supprime les espacements verticaux et horizontaux entre
+ * les éléments de la grille.
+ */
+.grid--withoutSpacing {
+  margin: 0;
+}
+.grid--withoutSpacing > .grid-item {
+  padding: 0;
+}
+
+
+
+/*
+ * Élément de grille
+ * ---
+ *
+ * …
+ *
+ * 1. Assure un alignement des lignes de texte par défaut.
+ * 2. Aligne le haut des éléments et de ses descendants
+ *    avec le haut de la ligne entière.
+ */
+.grid-item {
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0;
+  padding: var(--grid-vspacing, 0) var(--grid-hspacing, 0);
+  text-align: left; /* 1 */
+  vertical-align: top; /* 2 */
+}
+
+/*
+ * Modificateur : centre horizontalement un élément de grille.
+ *
+ * NOTE : l'usage de ce modificateur nécessite de définir une largeur
+ * sur l'élément de la grille. (ex. : via une classe HTML `.u-sizeXofY`
+ * ou une déclaration CSS avec l'attribut `style`).
+ */
+.grid-item--alignCenter {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/*
+ * Modificateur : aligne un élément de grille à gauche.
+ *
+ * NOTE : l'usage de ce modificateur nécessite de définir une largeur
+ * sur l'élément de la grille. (ex. : via une classe HTML `.u-sizeXofY`
+ * ou une déclaration CSS avec l'attribut `style`).
+ */
+.grid-item--alignLeft {
+  display: block;
+  margin-right: auto;
+}
+
+/*
+ * Modificateur : aligne un élément de grille à droite.
+ *
+ * NOTE : l'usage de ce modificateur nécessite de définir une largeur
+ * sur l'élément de la grille. (ex. : via une classe HTML `.u-sizeXofY`
+ * ou une déclaration CSS avec l'attribut `style`).
+ */
+.grid-item--alignRight {
+  display: block;
+  margin-left: auto;
+}
+
+
+
+/*
+ * Débugueur de grille
+ * ---
+ *
+ * Dessine un arrière-plan représentant les bornes intérieures des colonnes
+ * de la grille verticale utilisée.
+ * Inspiré par http://baselinecss.com/
+ *
+ * Les débugueurs ne sont pas fonctionnels dans les navigateurs utilisant
+ * Blink ou WebKit.
+ * cf. : https://code.google.com/p/chromium/issues/detail?id=419344
+ */
+.grid[css-debug] {
+  background: linear-gradient(to right
+   ,rgba(230, 36, 153, .15) 1px
+   ,transparent 1px
+   ,transparent calc(100% - 2 * var(--grid-hspacing, 0) - 1px)
+   ,rgba(230, 36, 153, .15) calc(100% - 2 * var(--grid-hspacing, 0) - 1px)
+   ,rgba(230, 36, 153, .15) calc(100% - 2 * var(--grid-hspacing, 0))
+   ,transparent calc(100% - 2 * var(--grid-hspacing, 0))
+  );
+  background-position: calc(1 * var(--grid-hspacing, 0)) 0;
+  background-size: calc(100% * 1 / 12) auto;
+}
+
+/*
+ * Dessine un arrière-plan représentant les colonnes
+ * de la grille verticale utilisée.
+ *//*
+.grid[css-debug] {
+  background-image: linear-gradient(to right
+   ,transparent calc(2 * var(--grid-hspacing, 0))
+   ,rgba(231, 132, 132, .25) calc(2 * var(--grid-hspacing, 0))
+  );
+  background-position: calc(-1 * var(--grid-hspacing, 0)) 0;
+  background-size: calc(100% * 1 / 12) 100%;
+}
+*/

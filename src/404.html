@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>{{ site.title }}</title>
+        <meta name="description" content="{{ site.description }}">
+    </head>
+	<body>
+
+		<div class="site">
+			<div class="site-inner">
+
+				<div class="nav site-skipNav">
+					<ul class="nav-list nav-list--inline">
+						<li><a href="#nav">Aller au menu principal</a><span>&nbsp;; </span></li>
+						<li><a href="#search">Aller au moteur de recherche</a><span>.</span></li>
+					</ul>
+				</div>
+
+				<div class="site-organisation" itemscope itemtype="http://schema.org/Organization">
+                    <a href="//{{ site.host }}" itemprop="url">
+                        <img src="{{ client.logo }}" alt="Logo {{ client.name }}" itemprop="logo">
+                    </a>
+                    <h1 itemprop="name">{{ client.name }}</h1>
+                    <p itemprop="description">{{ client.description }}</p>
+                </div>
+
+				{% block content %}{% endblock %}
+
+				<div class="wswg">
+					<h2>Désolé, la page que vous recherchez est introuvable !</h2>
+					<p>Il se peut qu’elle n’existe plus ou que l’adresse de la page soit invalide.</p>
+					<p>Toutes nos excuses pour la gêne occasionnée. Pour continuer votre visite, voici quelques pages qui pourraient vous être utiles&nbsp;: </p>
+					<p>&nbsp;</p>
+					<ol id="nav">
+						<li><a href="/">Notre page d’accueil</a></li>
+						<li><a href="{{ url.plandusite }}">Le plan de notre site</a></li>
+						<li>Si vous pensez qu’il devrait y avoir quelque chose ici, <a href="{{ url.contact }}">contactez-nous</a></li>
+					</ol>
+					<p>&nbsp;</p>
+                    <h3>N’hésitez pas à faire une nouvelle recherche&nbsp;: </h3>
+				</div>
+
+				<div class="site-search" id="search">
+                    <form action="{{ url.search }}">
+                        <fieldset>
+                            <legend class="u-hidden">Rechercher par mots-clés sur le site</legend>
+                            <div>
+                                <label class="u-hidden" for="searchR">Mots-clés à rechercher</label>
+                                <input type="text" name="r" value="" id="searchR" placeholder="Saisissez vos mots-clés…" />
+                            </div>
+                        </fieldset>
+                        <button type="submit">Rechercher</button>
+                    </form>
+                </div>
+
+			</div>
+		</div><!-- /.site -->
+
+	</body>
+</html>

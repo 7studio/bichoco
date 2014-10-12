@@ -1,0 +1,280 @@
+
+/*
+ * @component
+ *
+ * Mises en page
+ * ===
+ *
+ * Alternative au composant de grilles, ce composant donne plus de flexibilité
+ * pour définir inégalement les largeurs et les marges de chaque élément.
+ * Le composant tire tous ses avantages de la propriété CSS `float`, ce qui
+ * donne la possibilité au contenu de ne pas être figé dans une largeur établie
+ * et d'être dans un ordre logique à l'intérieur de la structure HTML pour
+ * respecter l'ordre d'apparition des éléments à l'écran.
+ *
+ * ## Ressources
+ *
+ * - http://www.dynamicdrive.com/style/layouts/category/C13/
+ * - http://codepen.io/7studio/pen/JKjag
+ * - http://jsfiddle.net/7studio/54HC5/
+ *
+ * ## Exemple HTML
+ *
+ * ```
+ * <div class="layout [layout--reversed]">
+ *     <div class="layout-column">
+ *         {{ contenu }}
+ *     </div>
+ *     <div class="layout-content">
+ *         <div class="layout-inner">
+ *             {{ contenu }}
+ *         </div>
+ *     </div>
+ * </div>
+ * ```
+ */
+
+
+
+/*
+ * 1. …
+ * 2. …
+ */
+.layout,
+.layout-column,
+.layout-content,
+.layout-inner {
+  display: block; /* 1 */
+  margin: 0; /* 2 */
+  padding: 0; /* 2 */
+}
+.layout::after {
+  clear: both;
+  display: block;
+  content: "";
+}
+.layout-inner {
+  float: left;
+  width: 100%;
+}
+
+/*
+ * Modificateur : renverse l'ordre d'affichage des colonnes.
+ */
+.layout--reversed {  }
+
+
+
+/*
+ * Utilisation du composant sur un modèle deux colonnes
+ * ---
+ *
+ * ┌─ ─ ─ ─ ─ ─┐ M ┌─ ─ ─ ─ ─┐
+ * | colonne 1 | | | contenu |
+ * └─ ─ ─ ─ ─ ─┘ 1 └─ ─ ─ ─ ─┘
+ *
+ * ## Code HTML (Emmet)
+ *
+ * ```
+ * .layout>.layout-column+.layout-content>.layout-inner
+ * ```
+ *
+ * ## Code CSS
+ *
+ * ```
+ * .layout-column {
+ *   float: left;
+ *   width: LARGEUR_COLONNE_1;
+ * }
+ * .layout-content {
+ *   margin-left: LARGEUR_COLONNE_1 + MARGE_1;
+ * }
+ *
+ * .layout--reversed .layout-column {
+ *   float: right;
+ * }
+ * .layout--reversed .layout-content {
+ *   margin-right: LARGEUR_COLONNE_1 + MARGE_1;
+ *   margin-left: 0;
+ * }
+ * ```
+ *
+ *
+ *
+ * ┌─ ─ ─ ─ ─┐ M ┌─ ─ ─ ─ ─ ─┐
+ * | contenu | | | colonne 1 |
+ * └─ ─ ─ ─ ─┘ 1 └─ ─ ─ ─ ─ ─┘
+ *
+ * ## Code HTML (Emmet)
+ *
+ * ```
+ * .layout>.layout-content>.layout-inner^.layout-column
+ * ```
+ *
+ * ## Code CSS
+ *
+ * ```
+ * .layout-column {
+ *   float: right;
+ *   width: LARGEUR_COLONNE_1;
+ * }
+ * .layout-content {
+ *   margin-right: MARGE_1 + LARGEUR_COLONNE_1;
+ * }
+ *
+ * .layout--reversed .layout-column {
+ *   float: none;
+ * }
+ * .layout--reversed .layout-inner {
+ *   float: right;
+ * }
+ * .layout--reversed .layout-content {
+ *   margin-right: 0;
+ *   margin-left: LARGEUR_COLONNE_1 + MARGE_1;
+ * }
+ * ```
+ */
+
+
+
+/*
+ * Utilisation du composant sur un modèle trois colonnes
+ * ---
+ *
+ * ┌─ ─ ─ ─ ─ ─┐ M ┌─ ─ ─ ─ ─┐ M ┌─ ─ ─ ─ ─ ─┐
+ * | colonne 1 | | | contenu | | | colonne 2 |
+ * └─ ─ ─ ─ ─ ─┘ 1 └─ ─ ─ ─ ─┘ 2 └─ ─ ─ ─ ─ ─┘
+ *
+ * ## Code HTML (Emmet)
+ *
+ * ```
+ * .layout>.layout-column.layout-column--1+.layout-content>.layout-inner^.layout-column.layout-column--2
+ * ```
+ *
+ * ## Code CSS
+ *
+ * ```
+ * .layout-column {
+ *   float: left;
+ * }
+ * .layout-column--1 {
+ *   width: LARGEUR_COLONNE_1;
+ * }
+ * .layout-column--2 {
+ *   margin-left: MARGE_2;
+ *   width: LARGEUR_COLONNE_2;
+ * }
+ * .layout-content {
+ *   margin-right: MARGE_2 + LARGEUR_COLONNE_2;
+ *   margin-left: LARGEUR_COLONNE_1 + MARGE_1;
+ * }
+ *
+ * .layout--reversed .layout-column,
+ * .layout--reversed .layout-inner {
+ *   float: right;
+ * }
+ * .layout--reversed .layout-column--1 {
+ *   width: LARGEUR_COLONNE_1;
+ * }
+ * .layout--reversed .layout-column--2 {
+ *   margin-right: MARGE_2;
+ *   margin-left: 0;
+ *   width: LARGEUR_COLONNE_2;
+ * }
+ * .layout--reversed .layout-content {
+ *   margin-right: LARGEUR_COLONNE_1 + MARGE_1;
+ *   margin-left: MARGE_2 + LARGEUR_COLONNE_2;
+ * }
+ * ```
+ *
+ *
+ *
+ * ┌─ ─ ─ ─ ─ ─┐ M ┌─ ─ ─ ─ ─ ─┐ M ┌─ ─ ─ ─ ─┐
+ * | colonne 1 | | | colonne 2 | | | contenu |
+ * └─ ─ ─ ─ ─ ─┘ 1 └─ ─ ─ ─ ─ ─┘ 2 └─ ─ ─ ─ ─┘
+ *
+ * ## Code HTML (Emmet)
+ *
+ * ```
+ * .layout>.layout-column.layout-column--1+.layout-column.layout-column--2+.layout-content>.layout-inner
+ * ```
+ *
+ * ## Code CSS
+ *
+ * ```
+ * .layout-column {
+ *   float: left;
+ * }
+ * .layout-column--1 {
+ *   margin-right: MARGE_1;
+ *   width: LARGEUR_COLONNE_1;
+ * }
+ * .layout-column--2 {
+ *   margin-right: MARGE_2;
+ *   width: LARGEUR_COLONNE_2;
+ * }
+ * .layout-content {
+ *   margin-left: LARGEUR_COLONNE_1 + MARGE_1 + LARGEUR_COLONNE_2 + MARGE_2;
+ * }
+ *
+ * .layout--reversed .layout-column {
+ *   float: right;
+ *   margin-right: 0;
+ * }
+ * .layout--reversed .layout-column--1 {
+ *   margin-left: MARGE_1;
+ * }
+ * .layout--reversed .layout-column--2 {
+ *   margin-left: MARGE_2;
+ * }
+ * .layout--reversed .layout-content {
+ *   margin-right: MARGE_2 + LARGEUR_COLONNE_2 + MARGE_1 + LARGEUR_COLONNE_1;
+ *   margin-left: 0;
+ * }
+ * ```
+ *
+ *
+ *
+ * ┌─ ─ ─ ─ ─┐ M ┌─ ─ ─ ─ ─ ─┐ M ┌─ ─ ─ ─ ─ ─┐
+ * | contenu | | | colonne 1 | | | colonne 2 |
+ * └─ ─ ─ ─ ─┘ 1 └─ ─ ─ ─ ─ ─┘ 2 └─ ─ ─ ─ ─ ─┘
+ *
+ * ## Code HTML (Emmet)
+ *
+ * ```
+ * .layout>.layout-content>.layout-inner^.layout-column.layout-column--1+.layout-column.layout-column--2
+ * ```
+ *
+ * ## Code CSS
+ *
+ * ```
+ * .layout-column {
+ *   float: left;
+ * }
+ * .layout-column--1 {
+ *   margin-left: MARGE_1;
+ *   width: LARGEUR_COLONNE_1;
+ * }
+ * .layout-column--2 {
+ *   margin-left: MARGE_2;
+ *   width: LARGEUR_COLONNE_2;
+ * }
+ * .layout-content {
+ *   margin-right: MARGE_1 + LARGEUR_COLONNE_1 + MARGE_2 + LARGEUR_COLONNE_2;
+ * }
+ *
+ * .layout--reversed .layout-column {
+ *   margin-left: 0;
+ * }
+ * .layout--reversed .layout-column--1 {
+ *   margin-right: MARGE_1;
+ * }
+ * .layout--reversed .layout-inner {
+ *   float: right
+ * }
+ * .layout--reversed .layout-content {
+ *   margin-right: 0;
+ *   margin-left: MARGE_2 + LARGEUR_COLONNE_2 + MARGE_1 + LARGEUR_COLONNE_1;
+ * }
+ * ```
+ */

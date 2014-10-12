@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, width=device-width">
+<title>Bichoco : tests du composant Mises en page</title>
+<link rel="stylesheet" href="test.css">
+<style>
+  .fixture-Box {
+    margin: 0 0 10px;
+    border: 1px solid black;
+    min-height: 150px;
+    background: rgb(107, 142,  35);
+  }
+
+  .dev-highlight {
+    background: yellow;
+  }
+
+  .Test {
+    padding: 0 10px;
+  }
+</style>
+<div class="Test">
+    <h1 class="Test-title">Bichoco&nbsp;: tests du composant <a href="https://github.com/7studio/bichoco/src/css/components/layouts.css" target="_blank">Mises en page</a></h1>
+
+    <h2 class="Test-describe"><code>.layout</code></h2>
+    <h3 class="Test-it">…</h3>
+    <div class="Test-run">
+
+        <div class="layout">
+            <div class="layout-content">
+                <div class="layout-inner">
+                    <div class="dev-highlight">contenu</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <h2 class="Test-describe"><code>.layout-column</code></h2>
+    <h3 class="Test-it">…</h3>
+    <div class="Test-run">
+
+        <style>
+          #Layout1C .layout-column {
+            float: left;
+            width: 320px;
+          }
+          #Layout1C .layout-content {
+            margin-left: 340px;
+          }
+        </style>
+
+        <div class="layout" id="Layout1C">
+            <div class="layout-column">
+                <div class="fixture-Box">Colonne (à gauche)</div>
+            </div>
+            <div class="layout-content">
+                <div class="layout-inner">
+                    <div class="dev-highlight">contenu</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <h3 class="Test-it">…</h3>
+    <div class="Test-run">
+
+        <style>
+          #LayoutC1 .layout-column {
+            float: right;
+            width: 320px;
+          }
+          #LayoutC1 .layout-content {
+            margin-right: 340px;
+          }
+        </style>
+
+        <div class="layout" id="LayoutC1">
+            <div class="layout-content">
+                <div class="layout-inner">
+                    <div class="dev-highlight">contenu</div>
+                </div>
+            </div>
+            <div class="layout-column">
+                <div class="fixture-Box">Colonne (à droite)</div>
+            </div>
+        </div>
+
+    </div>
+
+    <h2 class="Test-describe"><code>.layout-column--1</code> &amp; <code>.layout-column--2</code></h2>
+    <h3 class="Test-it">…</h3>
+    <div class="Test-run">
+
+        <style>
+          #Layout1C2 .layout-column {
+            float: left;
+          }
+          #Layout1C2 .layout-column--1 {
+            width: 320px;
+          }
+          #Layout1C2 .layout-column--2 {
+            margin-left: 40px;
+            width: 180px;
+          }
+          #Layout1C2 .layout-content {
+            margin-right: 220px;
+            margin-left: 340px;
+          }
+        </style>
+
+        <div class="layout" id="Layout1C2">
+            <div class="layout-column layout-column--1">
+                <div class="fixture-Box">Colonne 1 (à gauche)</div>
+            </div>
+            <div class="layout-content">
+                <div class="layout-inner">
+                    <div class="dev-highlight">contenu</div>
+                </div>
+            </div>
+            <div class="layout-column layout-column--2">
+                <div class="fixture-Box">Colonne 2 (à droite)</div>
+            </div>
+        </div>
+
+    </div>
+    <h3 class="Test-it">…</h3>
+    <div class="Test-run">
+
+        <style>
+          #Layout12C .layout-column {
+            float: left;
+          }
+          #Layout12C .layout-column--1 {
+            margin-right: 20px;
+            width: 320px;
+          }
+          #Layout12C .layout-column--2 {
+            margin-right: 40px;
+            width: 180px;
+          }
+          #Layout12C .layout-content {
+            margin-left: 560px;
+          }
+        </style>
+
+        <div class="layout" id="Layout12C">
+            <div class="layout-column layout-column--1">
+                <div class="fixture-Box">Colonne 1 (à gauche)</div>
+            </div>
+            <div class="layout-column layout-column--2">
+                <div class="fixture-Box">Colonne 2 (à gauche)</div>
+            </div>
+            <div class="layout-content">
+                <div class="layout-inner">
+                    <div class="dev-highlight">contenu</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <h3 class="Test-it">…</h3>
+    <div class="Test-run">
+
+        <style>
+          #LayoutC12 .layout-column {
+            float: left;
+          }
+          #LayoutC12 .layout-column--1 {
+            margin-left: 20px;
+            width: 320px;
+          }
+          #LayoutC12 .layout-column--2 {
+            margin-left: 40px;
+            width: 180px;
+          }
+          #LayoutC12 .layout-content {
+            margin-right: 560px;
+          }
+        </style>
+
+        <div class="layout" id="LayoutC12">
+            <div class="layout-content">
+                <div class="layout-inner">
+                    <div class="dev-highlight">contenu</div>
+                </div>
+            </div>
+            <div class="layout-column layout-column--1">
+                <div class="fixture-Box">Colonne 1 (à droite)</div>
+            </div>
+            <div class="layout-column layout-column--2">
+                <div class="fixture-Box">Colonne 2 (à droite)</div>
+            </div>
+        </div>
+
+    </div>
+</div>

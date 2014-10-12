@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>{{ site.title }}</title>
+        <meta name="description" content="{{ site.description }}">
+    </head>
+    <body itemscope itemtype="http://schema.org/WebPage">
+
+        <!--[if lte IE 8]>
+        <style>#BrowsersAlert{margin:0 0 1px;border:3px solid #dfd8c2;padding:.6875em 17px;color:#596063;font: 13px/1.37 sans-serif;background-color:#fff9ea}#BrowsersAlert a{color:#4183c4;text-decoration:underline}#BrowsersAlert a:hover,#BrowsersAlert a:focus{text-decoration:none}</style>
+        <div id="BrowsersAlert">
+            <strong>L’utilisation d’Internet Explorer 8 n’est plus recommandée.</strong>
+            <br>{{ client.name }} ne garantit plus l’ouverture correcte de son site web via le navigateur Internet Explorer 8 et ses versions antérieures.
+            <br>Notre site web est cependant toujours consultable, mais certaines fonctionnalités pourraient ne pas fonctionner comme elles le devraient.
+            <br>Face à cela, {{ client.name }} recommande à ses visiteurs de mettre à jour leur navigateur. Pour plus d’informations, consultez&nbsp;: <a href="//whatbrowser.org" target="blank" rel="nofollow">whatbrowser.org</a> - un site géré par Google.
+        </div>
+        <![endif]-->
+
+        <noscript>
+        <style>#NoscriptAlert{margin:0 0 1px;border:3px solid #c9d6e3;padding:.6875em 17px;color:#596063;font: 13px/1.37 sans-serif;background-color:#f7fafd}</style>
+        <div id="NoscriptAlert">
+            <strong>Pour une meilleure consultation, activez JavaScript.</strong>
+            <br>Il semble que JavaScript soit désactivé ou ne soit pas pris en charge.
+            <br/>Pour une meilleure consultation de notre site, nous vous invitons à activer JavaScript dans votre navigateur.
+        </div>
+        </noscript>
+
+        <div class="site">
+
+            <div class="site-header">
+                <div class="site-inner">
+
+                    <div class="nav site-skipNav">
+                        <ul class="nav-list nav-list--inline">
+                            <li><a href="#nav">Aller au menu principal</a><span>&nbsp;; </span></li>
+                            <li><a href="#content">Aller au contenu</a><span>&nbsp;; </span></li>
+                            <li><a href="#search">Aller au moteur de recherche</a><span>.</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="site-organisation" itemscope itemtype="http://schema.org/Organization">
+                        <a href="//{{ site.host }}" itemprop="url">
+                            <img src="{{ client.logo }}" alt="Logo {{ client.name }}" itemprop="logo">
+                        </a>
+                        <h1 itemprop="name">{{ client.name }}</h1>
+                        <p itemprop="description">{{ client.description }}</p>
+                    </div>
+
+                    <div class="site-search" id="search">
+                        <form action="{{ url.search }}">
+                            <fieldset>
+                                <legend class="u-hidden">Rechercher par mots-clés sur le site</legend>
+                                <div>
+                                    <label class="u-hidden" for="searchR">Mots-clés à rechercher</label>
+                                    <input type="text" name="r" value="" id="searchR" placeholder="Saisissez vos mots-clés…" />
+                                </div>
+                            </fieldset>
+                            <button type="submit">Rechercher</button>
+                        </form>
+                    </div>
+
+                    <div class="nav site-navigation" id="nav">
+                        <strong class="nav-name u-hidden">Navigation principale du site {{ client.name }}.</strong>
+                        {{ navigation.content }}
+                    </div>
+
+                </div>
+            </div><!-- /.site-header -->
+
+            <div class="site-main">
+                <div class="site-inner">
+
+                    <div class="layout site-mainLayout">
+                        <div class="layout-column layout-column--1">
+
+                            …
+
+                        </div>
+                        <div class="layout-content">
+                            <div class="layout-inner">
+
+                                <div class="page">
+
+                                    <p class="breadcrumb page-breadcrumb" itemprop="breadcrumb">
+                                        <strong>Vous êtes dans&nbsp;: </strong>
+                                        {{ breadcrumb.content }}
+                                    </p>
+
+                                    <h1 class="page-name" itemprop="name">{{ page.name }}</h1>
+                                    <p class="page-description" itemprop="description">{{ page.description }}</p>
+
+                                    <div class="page-content" itemprop="mainContentOfPage">
+                                        {% block content %}{% endblock %}
+                                    </div>
+
+                                </div><!-- /.page -->
+
+                            </div>
+                        </div>
+                    </div><!-- /.site-mainLayout -->
+
+                </div>
+            </div><!-- /.site-main -->
+
+            <div class="site-footer">
+                <div class="site-inner">
+
+                    <div class="nav site-contentinfoNav">
+                        <ul class="nav-list nav-list--separate">
+                            <li><a href="{{ url.plandusite }}">Plan du site</a><span>&nbsp;; </span></li>
+                            <li><a href="{{ url.credits }}">Crédits / Mentions légales</a><span>.</span></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div><!-- /.site-footer -->
+
+        </div><!-- /.site -->
+
+    </body>
+</html>

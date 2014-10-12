@@ -1,0 +1,222 @@
+
+/*
+ * @html
+ *
+ * Homogénéisation de l'apparence des éléments HTML
+ * ===
+ *
+ * …
+ *
+ * ## Ressources
+ *
+ * - http://www.w3.org/TR/CSS2/sample.html
+ * - http://www.w3.org/TR/html5/rendering.html
+ * - http://www.whatwg.org/specs/web-apps/current-work/multipage/rendering.html#the-css-user-agent-style-sheet-and-presentational-hints
+ * - http://mxr.mozilla.org/mozilla-release/source/layout/style/forms.css
+ *   (ou resource://gre-resources/forms.css)
+ * - http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css
+ * - https://github.com/necolas/normalize.css/blob/master/normalize.css
+ */
+
+
+
+/*
+ * 1. Uniformise le style de la bordure.
+ *    - IE<=11 : `{ border: 1px solid; }`.
+ * 2. Hérite de la valeur calculée de la propriété CSS color.
+ *    cf. : http://www.sitepoint.com/12-little-known-css-facts/#the-color-property-isnt-just-for-text
+ * 3. Uniformise les marges intérieures.
+ *    - IE<=11 : `{ padding: 3px 3px 4px; }`.
+ *    cf. :
+ *    - https://connect.microsoft.com/IE/feedback/details/816709/
+ *    - https://github.com/guardian/guss-typography/blob/master/_typography.mixins.scss#L16-L18
+ */
+fieldset {
+  border: 2px groove; /* 1 */
+  border-color: inherit; /* 2 */
+  padding: .35em .625em .75em; /* 3 */
+  padding: .35em calc(1em * .625) .75em; /* 3 */
+}
+
+/*
+ * 1. …
+ * 2. …
+ */
+legend {
+  box-sizing: border-box; /* 1 */
+  width: auto; /* 1 */
+  max-width: 100%; /* 1 */
+  color: inherit; /* 2 */
+  white-space: normal; /* 1 */
+}
+
+/*
+ * 1. …
+ *
+ * Fx : `input[type=file] > button[type=button]`
+ */
+label[for],
+input[type=radio],
+input[type=checkbox],
+button,
+input[type=reset],
+input[type=button],
+input[type=submit] {
+  cursor: pointer; /* 1 */
+}
+input[type=file]::-webkit-file-upload-button {
+  cursor: pointer; /* 1 */
+}
+
+/*
+ * 1. …
+ */
+button[disabled],
+input[disabled] {
+  cursor: default; /* 1 */
+}
+
+/*
+ * 1. Supprime les marges extérieures par défaut des éléments.
+ */
+button,
+input,
+select,
+textarea {
+  margin: 0; /* 1 */
+}
+
+/*
+ * 1. Homogénéise la propriété CSS `overflow`.
+ *    - IE<=11 : `{ overflow: hidden; }`.
+ */
+button {
+  overflow: visible; /* 1 */
+}
+
+/*
+ * 1. Déshérite les éléments HTML `<button>` et `<select>` de la casse du texte
+ *    de leur parent.
+ *    Fonctionnement par défaut pour tous les autres éléments d'un formulaire.
+ *    - `<button>` : IE<=11, Fx, Opera.
+ *    - `<select>` : Fx.
+ */
+button,
+select {
+  text-transform: none; /* 1 */
+}
+
+/*
+ * 2. Cache la barre de défilement quand cela n'est pas nécessaire.
+ *    - IE<=11 : `{ overflow: scroll; }`.
+ */
+textarea {
+  overflow: auto; /* 2 */
+}
+
+/*
+ * 1. …
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0 !important; /* 1 */
+  padding: 0 !important; /* 1 */
+}
+
+/*
+ * 1. Uniformise le modèle de boîte CSS.
+ *    - IE 8/9/10 : `{ box-sizing: content-box; }`.
+ * 2. Supprime les marges intérieures appliquées par défaut dans IE 8/9/10.
+ */
+input[type=radio],
+input[type=checkbox] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/*
+ * 1. Uniformise les marges extèrieures.
+ *    - IE<=11 : `{ margin: 3px 3px 4px; }`.
+ */
+input[type=radio] {
+  margin: 3px 3px 0px 5px; /* 1 */
+}
+
+/*
+ * 1. …
+ * 2. …
+ *
+ * … (mettre un mot sur cas `:-ms-input-placeholder`)
+ */
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: inherit; /* 1 */
+  opacity: .54; /* 2 */
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: inherit; /* 1 */
+  opacity: .54; /* 2 */
+}
+:-ms-input-placeholder {
+  color: inherit; /* 1 */
+  opacity: .54; /* 2 */
+}
+
+
+
+/*
+ * @base
+ *
+ * Réinitialisation de l'apparence des éléments HTML
+ * ===
+ *
+ * …
+ */
+
+
+
+fieldset {
+  margin-right: 0;
+  margin-left: 0;
+  border: 0;
+  padding: 0;
+}
+
+/*
+ * 1. Définit de façon arbitraire les marges intérieures des éléments HTML.
+ *    NOTE : Firefox semble appliquer des marges différentes lorsqu'on
+ *    applique la déclaration CSS suivante : `border-style: solid;`.
+ * 2. Hérite de la taille et famille de la police définies par
+ *    le contexte (élément parent).
+ * 3. …
+ */
+input[type=text],
+input[type=password],
+select,
+textarea {
+  border: 1px solid;
+  padding: 1px; /* 1 */
+  font-size: inherit; /* 2 */
+  font-family: inherit; /* 2 */
+  line-height: normal; /* 3 */
+}
+
+/*
+ * 1. Permet à un label adjacent de ne pas être aligné avec le bas
+ *    de l'élément HTML `<textarea>`.
+ * 2. Réduit la possibilité de redimensionner l'élément dans le sens vertical.
+ */
+textarea {
+  vertical-align: text-top; /* 1 */
+  resize: vertical; /* 2 */
+}
+
+/*
+ * 1. Garde-fou pour le cas (possible mais stupide) suivant :
+ *    `input { display: block; }`.
+ *    cf. : http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css#L410
+ */
+input[type=hidden] {
+  display: none !important; /* 1 */
+}

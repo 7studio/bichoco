@@ -1,0 +1,200 @@
+
+/*
+ * @html
+ *
+ * Homogénéisation de l'apparence des éléments HTML
+ * ===
+ *
+ * …
+ *
+ * ## Ressources
+ *
+ * - http://www.w3.org/TR/CSS2/sample.html
+ * - http://www.w3.org/TR/html5/rendering.html
+ * - http://www.whatwg.org/specs/web-apps/current-work/multipage/rendering.html#the-css-user-agent-style-sheet-and-presentational-hints
+ * - http://mxr.mozilla.org/mozilla-release/source/layout/style/html.css
+ *   (ou resource://gre-resources/html.css)
+ * - http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css
+ * - https://github.com/necolas/normalize.css/blob/master/normalize.css
+ */
+
+
+
+/*
+ * 1. Évite tout problème de barre de défilement qui apparaissent puis
+ *    disparaissent dans un environnement dynamique.
+ * 2. …
+ */
+html {
+  overflow-y: scroll; /* 1 */
+  text-size-adjust: 100%; /* 2 */
+}
+
+/*
+ * 1. Supprime les marges extérieures appliquées par défaut.
+ */
+body {
+  margin: 0; /* 1 */
+}
+
+/*
+ * 1. Uniformise le modèle de boîte CSS.
+ *    - Chrome, IE : `{ box-sizing: content-box; height: 0; }`.
+ *    - Fx : `{ box-sizing: border-box; height: 2px; }`.
+ * 2. Hérite de la valeur calculée de la propriété CSS color.
+ *    cf. : http://www.sitepoint.com/12-little-known-css-facts/#the-color-property-isnt-just-for-text
+ */
+hr {
+  box-sizing: content-box; /* 1 */
+  border-color: inherit; /* 2 */
+  height: 0; /* 1 */
+}
+
+/*
+ * 1. Contient les débordements en affichant les barres de défilement
+ *    si nécessaire.
+ * 2. Fixe la largeur d'une tabulation à 4 espaces.
+ */
+pre {
+  overflow: auto; /* 1 */
+  tab-size: 4; /* 2 */
+}
+
+/*
+ * 1. Uniformise la marge intérieure gauche.
+ *    - IE 8 : `{ padding-left: 30pt; }`.
+ */
+ol,
+ul {
+  padding-left: 40px; /* 1 */
+}
+
+/*
+ * 1. Retire les marges extérieures en haut et en bas de l'élément quand
+ *    celui-ci est imbriqué.
+ *    - Chrome, IE : `{ margin: 1em 0; }`.
+ *    - Fx : `{ margin: 0; }`.
+ */
+dl dl,
+ol dl,
+ul dl {
+  margin-top: 0; /* 1 */
+  margin-bottom: 0; /* 1 */
+}
+
+/*
+ * 1. Homogénéise les marges extérieures.
+ *    - IE 8 : `{ margin: auto auto auto 40px; }`.
+ */
+dd {
+  margin-top: 0; /* 1 */
+  margin-right: 0; /* 1 */
+  margin-bottom: 0; /* 1 */
+}
+
+/*
+ * 1. Souligne les liens même si un utilisateur de Fx en a décidé autrement.
+ * 2. Retire l'arrière-plan gris au moment exact où l'utilisateur clique sur le
+ *    lien dans IE 10.
+ */
+a {
+  text-decoration: underline; /* 1 */
+  background-color: transparent; /* 2 */
+}
+
+/*
+ * 1. Retire les contours dynamiques au moment exact où l'utilisateur clique
+ *    ou survole le lien.
+ *    Les contours dynamiques sont réservés quand le lien reçoit le focus.
+ */
+a:active,
+a:hover {
+  outline: none; /* 1 */
+}
+
+/*
+ * 1. Corrige le comportement incorrect de WebKit.
+ *    cf. :
+ *    - https://github.com/necolas/normalize.css/pull/342
+ *    - https://bugs.webkit.org/buglist.cgi?quicksearch=bolder
+ * 2. Représente l'importance d'une chaîne par rapport à son parent.
+ *    L'élément HTML `<strong>` peut être utilisé dans un `<h1>` ou
+ *    un autre `<strong>` pour distinguer un texte plus important.
+ *    cf. : http://www.w3.org/TR/html5/text-level-semantics.html#the-strong-element
+ */
+b,
+strong {
+  font-weight: inherit; /* 1 */
+}
+b,
+strong {
+  font-weight: bolder; /* 2 */
+}
+
+/*
+ * 1. Spécifie une taille de police homogène dans tous les navigateurs.
+ */
+small {
+  font-size: .83em; /* 1 */
+}
+big {
+  font-size: 1.17em; /* 1 */
+}
+
+/*
+ * 1. Souligne les abbréviations pour Chrome, IE entre autres.
+ *    Un jour, nous remplacerons cela par : `text-decoration: dotted underline;`
+ * 2. Indique qu'une aide est disponible.
+ */
+abbr[title] {
+  border-bottom: 1px dotted; /* 1 */
+  cursor: help; /* 2 */
+}
+
+/*
+ * 1. Redéfinit la taille de police pour être similaire
+ *    à l'élément HTML `<small>`.
+ * 2. Empêche l'interligne inégal des lignes.
+ */
+sub,
+sup {
+  font-size: .83em; /* 1 */
+  line-height: 0; /* 2 */
+}
+
+/*
+ * 1. Indique la manière dont le user-agent doit afficher
+ *    nos jolis guillemets francais.
+ */
+q {
+  quotes: "\00AB\202F" "\202F\00BB" "\201C" "\201D"; /* 1 */
+}
+
+/*
+ * 1. Applique des marges extérieures en haut et en bas comme un élément
+ *    appartenant à la catégorie de contenu de flux (ex. : `<p>`, `<ul>`, …)
+ * 2. Fusionne les bordures des cellules adjacentes dans le tableau.
+ */
+table {
+  margin-top: 1em; /* 1 */
+  margin-bottom: 1em; /* 1 */
+  border-collapse: collapse; /* 2 */
+}
+
+/*
+ * 1. Dessine une bordure autour des cellules du tableau afin de le visualiser.
+ * 2. Aligne le haut du `padding` des cellules avec le haut de la rangée.
+ */
+th,
+td {
+  border: 1px solid; /* 1 */
+  vertical-align: top; /* 2 */
+}
+
+/*
+ * 1. Enlève la bordure autour de l'élément HTML `<img>` quand celui-ci
+ *    est à l'intérieur d'un lien dans IE 8/9/10.
+ */
+a img {
+  border: 0; /* 1 */
+}

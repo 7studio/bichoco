@@ -1,0 +1,61 @@
+
+/*! suit-test v"0.2.1 | MIT License | github.com/suitcss */
+.Test {
+  counter-reset: test-describe;
+}
+.Test-title {
+  padding: 20px;
+  margin: 20px 0;
+  color: #999;
+  font-size: 2em;
+  font-family: sans-serif;
+  background-color: #eee;
+}
+.Test-describe,
+.Test-it {
+  border-left: 5px solid #666;
+  margin: 20px 0;
+  padding: 0.75em 20px;
+  color: #666;
+  font-weight: 400;
+  font-family: sans-serif;
+  background-color: #eee;
+}
+.Test-describe {
+  counter-reset: test-it;
+
+  margin: 60px 0 20px;
+  font-weight: 700;
+  font-size: 1.5em;
+}
+.Test-describe:before,
+.Test-it:before {
+  display: inline-block;
+  margin: 0 10px 0 0;
+  min-width: 30px;
+  color: #999;
+  text-transform: uppercase;
+}
+.Test-describe:before {
+  counter-increment: test-describe;
+
+  content: counter(test-describe);
+}
+.Test-it:before {
+  counter-increment: test-it;
+
+  content: counter(test-describe) "." counter(test-it);
+}
+
+
+
+/* @component Mises en page */
+.layout::after {
+  clear: both;
+  display: block;
+  content: "";
+}
+.layout-inner {
+  float: left;
+  width: 100%;
+}
