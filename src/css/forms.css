@@ -107,20 +107,25 @@ select {
 }
 
 /*
- * 2. Cache la barre de défilement quand cela n'est pas nécessaire.
+ * 1. Cache la barre de défilement quand cela n'est pas nécessaire.
  *    - IE<=11 : `{ overflow: scroll; }`.
  */
 textarea {
-  overflow: auto; /* 2 */
+  overflow: auto; /* 1 */
 }
 
 /*
- * 1. …
+ * 1. Retire la fine bordure pointillée autours de la zone de contenu du bouton
+ *    lorsque celui-ci reçoit le focus.
+ * 2. Retire les marges intérieures ajotuées par Firefox
+ *    pour des questions d'accessibilité.
+ *
+ * cf. : https://developer.mozilla.org/fr/docs/Web/HTML/Element/Button#Notes (dernier paragraphe)
  */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0 !important; /* 1 */
-  padding: 0 !important; /* 1 */
+  padding: 0 !important; /* 2 */
 }
 
 /*
@@ -135,10 +140,10 @@ input[type=checkbox] {
 }
 
 /*
- * 1. …
- * 2. …
- *
- * … (mettre un mot sur cas `:-ms-input-placeholder`)
+ * 1. Hérite de la couleur de texte de l'élément HTML
+ *    sur lequel le texte indicatif est applqiué.
+ *    - Chrome, Safari : `{ color: darkGray; }`.
+ * 2. Uniformise l'opacité du texte indicatif.
  */
 ::-webkit-input-placeholder {
   color: inherit; /* 1 */
