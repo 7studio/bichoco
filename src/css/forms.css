@@ -135,14 +135,6 @@ input[type=checkbox] {
 }
 
 /*
- * 1. Uniformise les marges extèrieures.
- *    - IE<=11 : `{ margin: 3px 3px 4px; }`.
- */
-input[type=radio] {
-  margin: 3px 3px 0px 5px; /* 1 */
-}
-
-/*
  * 1. …
  * 2. …
  *
