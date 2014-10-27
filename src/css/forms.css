@@ -39,14 +39,14 @@ fieldset {
 }
 
 /*
- * 1. …
- * 2. …
+ * 1. Aide IE<=10 à ajouter automatiquement des ruptures de lignes.
+ * 2. Uniformise les marges intérieures.
+ * 3. Permet à IE<=11 d'hériter correctement de la valeur calculée de la propriété CSS color.
  */
 legend {
-  box-sizing: border-box; /* 1 */
-  width: auto; /* 1 */
-  max-width: 100%; /* 1 */
-  color: inherit; /* 2 */
+  display: table; /* 1 */
+  padding: 0 2px; /* 2 */
+  color: inherit; /* 3 */
   white-space: normal; /* 1 */
 }
 
