@@ -140,13 +140,11 @@ input[type=checkbox] {
  *
  * … (mettre un mot sur cas `:-ms-input-placeholder`)
  */
-input::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder {
+::-webkit-input-placeholder {
   color: inherit; /* 1 */
   opacity: .54; /* 2 */
 }
-input::-moz-placeholder,
-textarea::-moz-placeholder {
+::-moz-placeholder {
   color: inherit; /* 1 */
   opacity: .54; /* 2 */
 }
