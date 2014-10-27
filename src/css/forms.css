@@ -51,32 +51,6 @@ legend {
 }
 
 /*
- * 1. …
- *
- * Fx : `input[type=file] > button[type=button]`
- */
-label[for],
-input[type=radio],
-input[type=checkbox],
-button,
-input[type=reset],
-input[type=button],
-input[type=submit] {
-  cursor: pointer; /* 1 */
-}
-input[type=file]::-webkit-file-upload-button {
-  cursor: pointer; /* 1 */
-}
-
-/*
- * 1. …
- */
-button[disabled],
-input[disabled] {
-  cursor: default; /* 1 */
-}
-
-/*
  * 1. Supprime les marges extérieures par défaut des éléments.
  */
 button,
