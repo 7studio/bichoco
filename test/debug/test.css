@@ -1,0 +1,468 @@
+
+/*! suitcss-components-test v0.2.1 | MIT License | github.com/suitcss */
+.Test {
+  counter-reset: test-describe;
+}
+.Test-title {
+  padding: 20px;
+  margin: 20px 0;
+  color: #999;
+  font-size: 2em;
+  font-family: sans-serif;
+  background-color: #eee;
+}
+.Test-describe,
+.Test-it {
+  border-left: 5px solid #666;
+  margin: 20px 0;
+  padding: 0.75em 20px;
+  color: #666;
+  font-weight: 400;
+  font-family: sans-serif;
+  background-color: #eee;
+}
+.Test-describe {
+  counter-reset: test-it;
+
+  margin: 60px 0 20px;
+  font-weight: 700;
+  font-size: 1.5em;
+}
+.Test-describe:before,
+.Test-it:before {
+  display: inline-block;
+  margin: 0 10px 0 0;
+  min-width: 30px;
+  color: #999;
+  text-transform: uppercase;
+}
+.Test-describe:before {
+  counter-increment: test-describe;
+
+  content: counter(test-describe);
+}
+.Test-it:before {
+  counter-increment: test-it;
+
+  content: counter(test-describe) "." counter(test-it);
+}
+
+
+
+/*! bichoco-debug | MIT License | github.com/7studio/bichoco */
+head,
+title,
+head meta[name="description"],
+head meta[name^="twitter:"],
+head meta[property^="og:"],
+head meta[property^="fb:"],
+head link[rel="canonical"],
+head link[rel="stylesheet"],
+head script {
+  display: block;
+  padding: .34375em 0;
+}
+head {
+  box-sizing: border-box;
+  margin: .6875em 10px;
+  border: 1px solid #d4dde4;
+  padding: .34375em 10px;
+  overflow: hidden;
+  color: #4d4e53;
+  font: 13px/1.375 monospace;
+  text-decoration: none;
+  background: #f8f9fa;
+  box-shadow: 0 1px 2px rgba(125, 112, 33, .23);
+  cursor: default;
+}
+title ~ * {
+  border-top: 1px solid #e6eaef;
+}
+head meta,
+head link {
+  display: none;
+}
+head::before {
+  content: "Notes : "
+           "\A * Titre : ≈55 caractères."
+           "\A * Description : ≈155 caractères."
+           "\A ---";
+  color: #888;
+  font-size: .75em;
+  white-space: pre-wrap;
+}
+title::before {
+  content: "<title>";
+}
+title::after {
+  content: "</title>";
+}
+head meta[name]::before {
+  content: "<meta name=\""attr(name)"\" content=\""attr(content)"\">";
+}
+head meta[property]::before {
+  content: "<meta property=\""attr(property)"\" content=\""attr(content)"\">";
+}
+head meta[content=""]::before {
+  color: #f00 !important;
+}
+head meta[name^="twitter:"]::before,
+head meta[property^="og:"]::before,
+head meta[property^="fb:"]::before {
+  display: inline-block;
+  padding-left: calc(1em + 5px);
+  background-position: 0 .171875em;
+  background-size: 1em auto;
+  background-repeat: no-repeat;
+}
+head meta[name^="twitter:"]::before {
+  color: #55acee;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAdCAYAAABWk2cPAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAH7SURBVHja5Nbfa81xHMfxx2Z+pLTUFJNWJI2iFOVHUsqP+Q8MQ9nU3Ll0scKV3ZHakqz8uKBkWqHlYjeTTkmRsrQocoFdDJPCcfM+63ScX9+zc+zCq96d7/d7Pt/Ps8/n/fm+36+6dDrtX6veLKih49Z4NeY5hnZswByM4Q7OI3sr9+JlQ9zsxmpcqgD4AHtynm2O6MARNOM0lqA1Az2Eg3iHwQTAoTzAbLXiSVx/wWI0ZnK6In7vorNM4D7sL3PsJHoxgK4MdFHWgP6IhSUm6kywIwtwBltxMQN9nWfCMXQVOeFrEkDn4TpW4Wtmwmt5Bi5HH8ZxDlswN+v/iQTQ3zic+50O4WGBF1ri5I3iTYzrw7IE0DSapr9TzMcudOMqtqOuwMvNEUk1GTEN/YkrmMLnGhWh9/iRvb2/cBkrsanIKmeiF/lq74Ual9uRfNBPUTtrpcFCXeYmdmA48lstDeNDsdY2gdt4VUVoz1+tLee+LdpRtTSKx6WaeC/uVxF6oFzn0Bb5nalO4m0Su9KObTiFVAXA/mKGoL5EPh6F/UiiAZwoZcxyD9PScBIjeIaNCYBncbSkMYvG2o210bhbKljd80jFcLkWNIV7+Bb1NwnwKY5jfbnAzEq/40ZEUzjDnVgXjbwxmsAUPkZTTwWkkkOm7r9x+LMC/TMAN+Niz90ZNw4AAAAASUVORK5CYII=);
+}
+head meta[property^="og:"]::before,
+head meta[property^="fb:"]::before {
+  color: #3b5998;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAdCAMAAABhTZc9AAAAVFBMVEU7V507V507V507V507V507V507V508WJ0+Wp9GYKNHYaNNZ6dfd7CXpsucqs6grdCuuti8xd7Y3uvc4u7f5O/m6vPs7/b29/r4+fv6+/38/P3///8xOJ4cAAAABnRSTlMAAXN78/T3qSKZAAAAaklEQVR42t3OOQ6AMAxEUcfgAGFfwub735OIiiIZCUp++zTSkOHcxsuZiG06JgEqZFFvtWqnXTcf18brXVTdqkB7RboEGFzq1Rm0Tn7WUAHVflB9dJRIZ7gdoXb41V9VgAplQDMyLAkVpgvexB8yF+Ap8gAAAABJRU5ErkJggg==);
+}
+head link::before {
+  content: "<link rel=\""attr(rel)"\" href=\""attr(href)"\">";
+}
+head link[media]::before {
+  content: "<link rel=\""attr(rel)"\" href=\""attr(href)"\" media=\""attr(media)"\">";
+}
+head script {
+  color: transparent;
+  font: 0/0 a;
+}
+head script::before {
+  content: "<script src=\""attr(src)"\" />…</script>";
+}
+head script[async]::before {
+  content: "<script src=\""attr(src)"\" async/>…</script>";
+}
+html:not([lang]) {
+  content: "…";
+}
+div:empty,
+li:empty,
+p:empty,
+dt:empty,
+dd:empty {
+  content: "…";
+}
+ul > *:not(li)::before,
+ol > *:not(li)::before {
+  content: "L'élément HTML `{{ undefined }}` n'est pas autorisé comme enfant des éléments HTML `<ul>` et `<ol>`."
+           "\A Contenu autorisé : Zéro ou plusieurs éléments `<li>`.";
+}
+dl > *:not(dd):not(dt)::before {
+  content: "L'élément HTML `{{ undefined }}` n'est pas autorisé comme enfant de l'élément HTML `<dl>`"
+           "\A Contenu autorisé : Zero ou plusieurs éléments `<dt>`, chacun suivi par un ou plusieurs éléments `<dd>`.";
+}
+acronym::before {
+  content: "L'élément HTML `<acronym>` n'existe plus en HTML5 et son utilisation est découragée pour tout nouveau projet."
+           "\A Utilisez l'élément HTML `<abbr>` à la place."
+           "\A ---"
+           "\A `<abbr title\""attr(title)"\">…</abbr>`" !important;
+}
+[accesskey=""]::before,
+[class=""]::before,
+[dir=""]::before,
+[id=""]::before,
+[lang=""]::before,
+[tabindex=""]::before,
+[title=""]::before,
+[style=""]::before {
+  content: "L'élément HTML possède un attribut global énuméré (ex. : `dir`, `class`, `style`, etc) dont la valeur est une chaine vide." !important;
+}
+[onchange]::before {
+  content: "Un évènement JavaScript est attaché à l'élément HTML via l'attibut `onchange`."
+           "\A ---"
+           "\A `onchange=\""attr(onchange)"\"`" !important;
+}
+[onclick]::before {
+  content: "Un évènement JavaScript est attaché à l'élément HTML via l'attibut `onclick`."
+           "\A ---"
+           "\A `onclick=\""attr(onclick)"\"`" !important;
+}
+[onsubmit]::before {
+  content: "Un évènement JavaScript est attaché à l'élément HTML via l'attibut `onsubmit`."
+           "\A ---"
+           "\A `onsubmit=\""attr(onsubmit)"\"`" !important;
+}
+[style]::before {
+  content: "Cet élément HTML contient des déclarations de style CSS à appliquer via l'attribut `style`."
+           "\A Il est conseillé que les styles CSS soient définis dans un fichier séparé."
+           "\A ---"
+           "\A `style=\""attr(style)"\"`" !important;
+}
+abbr::before {
+  content: "Cet élément n'est pas supporté par IE 7. Avez-vous pensé à ceci : `document.createElement('abbr');` ?" !important;
+}
+abbr:not([title])::before,
+abbr[title=""]::before {
+  content: "L'élément HTML `<abbr>` devrait posséder un attribut `title` représentant la description complète de l'abréviation." !important;
+}
+
+q:not([cite])::before,
+blockquote:not([cite])::before,
+q[cite=""]::before,
+blockquote[cite=""]::before {
+  content: "Une URL indiquant la source de la citation devrait fournie en utilisant l'attribut `cite`." !important;
+}
+img[src^="//"]:hover ~ *::before,
+img[src^="http"]:hover ~ *::before {
+  content: "L'élément HTML `<img>` utilise une URL absolute comme source de l'image." !important;
+}
+img[width=""]:hover ~ *::before,
+img[height=""]:hover ~ *::before,
+img[usemap=""]:hover ~ *::before {
+  content: "L'élément HTML `<img>` possède un attribut énuméré (ex. : `width`, `usemap`, etc) dont la valeur est une chaine vide." !important;
+}
+img[alt=""]:hover ~ *::before,
+img[alt=" "]:hover ~ *::before {
+  content: "L'élément HTML `<img>` utilise un attribut `alt` dont la valeur est une chaine vide."
+           "\A Faire prendre la valeur d'une chaîne vide à cet attribut indique que l'image n'est pas une partie importante du contenu."
+           "\A Il est recommandé que chaque image importante du contenu soit dotée d'une alternative textuelle appropriée (≈ 120 caractères)." !important;
+}
+img:not([alt]):hover ~ *::before {
+  content: "L'élément HTML `<img>` ne posséde pas d'attribut `alt`."
+           "\A Omettre cet attribut signifie que l'image ne dispose d'aucun équivalent textuel."
+           "\A Il est recommandé que chaque image importante du contenu soit dotée d'une alternative textuelle appropriée (≈ 120 caractères)." !important;
+}
+a[name]::before {
+  content: "L'utilisation de l'attribut `name` est obsolète en HTML5, utilisez l'attribut global `id` à la place."
+           "\A ---"
+           "\A `<a name=\""attr(name)"\">…</a>`" !important;
+}
+a[href^="//"]::before,
+a[href^="http"]::before {
+  content: "L'internaute est-il clairement averti du fait qu'il va quitter le service en ligne qu'il est en train de visiter ?";
+}
+a[href^="//"]:not([target])::before,
+a[href^="http"]:not([target])::before {
+  content: "L'élément HTML `<a>` définit un hyperlien vers une ressource externe sans indiquer où afficher la ressource liée."
+           "\A Utilisez l'attribut `target` pour cela."
+           "\A ---"
+           "\A `<a href=\""attr(href)"\"` target=\"_blank\">…</a>`";
+}
+a[href^="javascript:"]::before {
+  content: "L'élément HTML `<a>` utilise le schéma d'URI non officiel et non recommandé dans tout nouveau projet `javascript:`."
+           "\A ---"
+           "\A `<a href=\""attr(href)"\">…</a>`" !important;
+}
+a[target=""]::before,
+a[type=""]::before,
+a[hreflang=""]::before,
+a[rel=""]::before {
+  content: "L'élément HTML `<a>` possède un attribut énuméré (ex. : `href`, `rel`, `target`, etc) dont la valeur est une chaine vide." !important;
+}
+a[href="#"]::before {
+  content: "Le fragment d'URL indique une cible interne au document inexistante."
+           "\A Vous pouvez utiliser le fragment spécial \"top\" pour créer un lien de retour vers le haut de la page."
+           "\A ---"
+           "\A `<a href=\"#\">…</a>`" !important;
+}
+a[href=""]::before {
+  content: "L'élément HTML `<a>` indique une cible inconnue."
+           "\A ---"
+           "\A `<a href=\"\">…</a>`" !important;
+}
+a:not([href])::before {
+  content: "L'élément HTML `<a>` ne posséde pas d'attribut `href`."
+           "\A Cet attribut n'est plus obligatoire en HTML5 et va créer un lien d'espace reservé."
+           "\A ---"
+           "\A `<a href=\"\">…</a>`" !important;
+}
+
+a[href^="//"],
+a[href^="http"],
+a[href^="mailto:"],
+a[href^="tel:"] {
+  position: relative;
+}
+a[href^="//"]:hover::after,
+a[href^="http"]:hover::after,
+a[href^="mailto:"]:hover::after,
+a[href^="tel:"]:hover::after {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  border: 1px solid #ffed8d;
+  border-bottom-color: #f5dc7a;
+  padding: .34375em 10px;
+  content: attr(href);
+  color: #888;
+  font: 13px/1.375 monospace;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: #fffada;
+  box-shadow: 0 1px 2px rgba(125, 112, 33, .23);
+  transform: translate(0, -50%);
+  cursor: default;
+  pointer-events: none;
+}
+a[target="_blank"]:hover::after {
+  padding-right: calc(5px + 1em + 10px);
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4gPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAgICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPiA8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmVyc2lvbj0iMS4xIiAgIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTAwMCIgaGVpZ2h0PSIxMDAwIj4gIDxwYXRoICAgICBkPSJtIDUwLDM1MCA2MDAsMCAwLDYwMCAtNjAwLDAgMCwtNjAwIHoiICAgICBzdHlsZT0iZmlsbDojZmZmZmZmO2ZpbGwtb3BhY2l0eToxO3N0cm9rZTojMDA2NmNjO3N0cm9rZS13aWR0aDoxMDA7c3Ryb2tlLWxpbmVqb2luOm1pdGVyO3N0cm9rZS1taXRlcmxpbWl0OjQ7c3Ryb2tlLW9wYWNpdHk6MTtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLWRhc2hvZmZzZXQ6MCIgLz4gIDxwYXRoICAgICBkPSJtIDQ1MCwxNTAgMCwtMTAwIDUwMCwwIDAsNTAwIC0xMDAsMCBMIDc1MCw0NTAgNDUwLDc1MCAyNTAsNTUwIDU1MCwyNTAgNDUwLDE1MCB6IiAgICAgc3R5bGU9ImZpbGw6I2ZmZmZmZjtmaWxsLW9wYWNpdHk6MTtzdHJva2U6IzAwNjZmZjtzdHJva2Utd2lkdGg6MTAwO3N0cm9rZS1saW5lam9pbjptaXRlcjtzdHJva2UtbWl0ZXJsaW1pdDo0O3N0cm9rZS1vcGFjaXR5OjE7c3Ryb2tlLWRhc2hhcnJheTpub25lO3N0cm9rZS1kYXNob2Zmc2V0OjAiIC8+IDwvc3ZnPg==);
+  background-position: calc(100% - 10px) 50%;
+  background-size: 1em 1em;
+  background-repeat: no-repeat;
+}
+img[src^="//"],
+img[src^="http"],
+a[href^="//"],
+a[href^="http"],
+a[href^="//"]:not([target]),
+a[href^="http"]:not([target]),
+abbr {
+  outline: 4px solid #00f;
+  outline-offset: -2px;
+}
+[accesskey=""],
+[class=""],
+[dir=""],
+[id=""],
+[lang=""],
+[tabindex=""],
+[title=""],
+[style=""],
+img[alt=""],
+img[alt=" "],
+img[width=""],
+img[height=""],
+img[usemap=""],
+a[href=""],
+a[target=""],
+a[type=""],
+a[hreflang=""],
+a[rel=""],
+a[href="#"],
+abbr:not([title]),
+abbr[title=""] {
+  outline: 4px solid #ff0 !important;
+  outline-offset: -2px;
+}
+acronym,
+[onblur],
+[onchange],
+[onclick],
+[onfocus],
+[onsubmit],
+[style],
+img:not([alt]),
+a:not([href]),
+a[name],
+a[href^="javascript:"],
+ul > *:not(li),
+ol > *:not(li),
+dl > *:not(dd):not(dt) {
+  outline: 4px solid #f00 !important;
+  outline-offset: -2px;
+}
+acronym::before,
+[accesskey=""]::before,
+[class=""]::before,
+[dir=""]::before,
+[id=""]::before,
+[lang=""]::before,
+[tabindex=""]::before,
+[title=""]::before,
+[style=""]::before,
+[onblur]::before,
+[onchange]::before,
+[onclick]::before,
+[onfocus]::before,
+[onsubmit]::before,
+[style]::before,
+img:not([alt]):hover ~ *::before,
+img[alt=""]:hover ~ *::before,
+img[alt=" "]:hover ~ *::before,
+img[width=""]:hover ~ *::before,
+img[height=""]:hover ~ *::before,
+img[usemap=""]:hover ~ *::before,
+img[src^="//"]:hover ~ *::before,
+img[src^="http"]:hover ~ *::before,
+a:not([href])::before,
+a[href=""]::before,
+a[target=""]::before,
+a[type=""]::before,
+a[hreflang=""]::before,
+a[rel=""]::before,
+a[name]::before,
+a[href^="javascript:"]::before,
+a[href="#"]::before,
+a[href^="//"]::before,
+a[href^="http"]::before,
+a[href^="//"]:not([target])::before,
+a[href^="http"]:not([target])::before,
+abbr::before,
+abbr:not([title])::before,
+abbr[title=""]::before,
+ul > *:not(li)::before,
+ol > *:not(li)::before,
+dl > *:not(dd):not(dt)::before {
+  direction: ltr;
+  box-sizing: border-box;
+  display: none;
+  position: fixed;
+  top: .6875em;
+  right: 10px;
+  left: 10px;
+  z-index: 1002;
+  border: 1px solid #ffed8d;
+  border-bottom-color: #f5dc7a;
+  padding: .6875em 10px;
+  color: #888;
+  font: 13px/1.375 monospace;
+  text-decoration: none;
+  text-align: left;
+  white-space: pre-wrap;
+  background: #fffada;
+  box-shadow: 0 1px 2px rgba(125, 112, 33, .23);
+  pointer-events: none;
+}
+acronym:hover::before,
+[accesskey=""]:hover::before,
+[class=""]:hover::before,
+[dir=""]:hover::before,
+[id=""]:hover::before,
+[lang=""]:hover::before,
+[tabindex=""]:hover::before,
+[title=""]:hover::before,
+[style=""]:hover::before,
+[onblur]:hover::before,
+[onchange]:hover::before,
+[onclick]:hover::before,
+[onfocus]:hover::before,
+[onsubmit]:hover::before,
+[style]:hover::before,
+img:not([alt]):hover ~ *::before,
+img[alt=""]:hover ~ *::before,
+img[alt=" "]:hover ~ *::before,
+img[width=""]:hover ~ *::before,
+img[height=""]:hover ~ *::before,
+img[usemap=""]:hover ~ *::before,
+img[src^="//"]:hover ~ *::before,
+img[src^="http"]:hover ~ *::before,
+a:not([href]):hover::before,
+a[href=""]:hover::before,
+a[target=""]:hover::before,
+a[type=""]:hover::before,
+a[hreflang=""]:hover::before,
+a[rel=""]:hover::before,
+a[name]:hover::before,
+a[href^="javascript:"]:hover::before,
+a[href="#"]:hover::before,
+a[href^="//"]:hover::before,
+a[href^="http"]:hover::before,
+a[href^="//"]:not([target]):hover::before,
+a[href^="http"]:not([target]):hover::before,
+abbr:hover::before,
+abbr:not([title]):hover::before,
+abbr[title=""]:hover::before,
+ul > *:not(li):hover::before,
+ol > *:not(li):hover::before,
+dl > *:not(dd):not(dt):hover::before {
+  display: block;
+}

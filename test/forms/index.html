@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <title>Bichoco : tests du fichier `forms.css`</title>
+        <meta name="description" content="">
+        <link rel="canonical" href="http://7studio.github.io/bichoco/test/forms/">
+        <link rel="stylesheet" href="test.css">
+        <style>
+          .Test-run {
+            min-height: 50px;
+          }
+          .Test-run--highlightEl > * {
+            outline: 1px solid #6b8e23;
+          }
+        </style>
+    </head>
+    <body>
+
+        <div class="Test">
+            <h1 class="Test-title">Bichoco&nbsp;: tests du fichier <a href="https://github.com/7studio/bichoco/blob/master/src/css/forms.css" target="_blank"><code>forms.css</code></a></h1>
+
+            <h2 class="Test-describe">Éléments HTML <code>&lt;fieldset&gt;</code></h2>
+            <h3 class="Test-it">doit avoir une bordure et des marges intérieures cohérentes</h3>
+            <div class="Test-run">
+                <fieldset>
+                    <div style="width:100%;height:100px;background:#6b8e23"></div>
+                </fieldset>
+            </div>
+            <h3 class="Test-it">doit avoir une bordure de la  même couleur que la couleur de texte de son élément parent</h3>
+            <div class="Test-run" style="color:#6b8e23">
+                <fieldset>
+                    <div style="width:100%;height:100px;background:#6b8e23"></div>
+                </fieldset>
+            </div>
+
+            <h2 class="Test-describe">Éléments HTML <code>&lt;legend&gt;</code></h2>
+            <h3 class="Test-it">doit ajouter des ruptures de lignes automatiques</h3>
+            <div class="Test-run" style="color:#6b8e23">
+                <fieldset style="width:20%">
+                    <legend id="test">Paris Web, la conférence francophone des gens qui font le web</legend>
+                </fieldset>
+            </div>
+            <h3 class="Test-it">doit hériter de la couleur de texte de son élément parent</h3>
+            <div class="Test-run" style="color:#6b8e23">
+                <fieldset>
+                    <legend>Paris Web, la conférence francophone des gens qui font le web</legend>
+                </fieldset>
+            </div>
+
+            <h2 class="Test-describe">Éléments HTML <code>&lt;label&gt;</code></h2>
+            <h3 class="Test-it">doit afficher une main au survol pour indiquer l'action possible</h3>
+            <div class="Test-run">
+                <label for="searchR">Mots-clés à rechercher</label>
+            </div>
+
+            <h2 class="Test-describe">Éléments HTML <code>&lt;input&gt;</code> &amp; <code>&lt;button&gt;</code></h2>
+            <h3 class="Test-it">ne doit pas avoir de bordure (au focus) ni de marges intérieures supplémentaires dans Firefox</h3>
+            <div class="Test-run">
+                <p><button>button</button></p>
+                <p><input value="input (text)"></p>
+                <p><input type="button" value="input (button)"></p>
+                <p><input type="reset" value="input (reset)"></p>
+                <p><input type="submit" value="input (submit)"></p>
+            </div>
+            <h3 class="Test-it">ne doit pas hériter de la casse du texte de son élément parent</h3>
+            <div class="Test-run" style="text-transform:uppercase">
+                <p><button>button</button></p>
+                <p><input value="input (text)"></p>
+                <p><input type="button" value="input (button)"></p>
+            </div>
+
+            <h2 class="Test-describe">Éléments HTML <code>&lt;input[type=checkbox]&gt;</code> &amp; <code>&lt;input[type=radio]&gt;</code></h2>
+            <h3 class="Test-it">doit avoir un modèle de boîte CSS <code>border-box</code></h3>
+            <div class="Test-run Test-run--highlightEl" id="radio-box-model">
+                <style>
+                  #radio-box-model {
+                    border: 1px solid red;
+                    width: 200px;
+                  }
+
+                  #radio-box-model input {
+                    position: relative;
+                    display: block;
+                    border: 5px solid #6b8e23;
+                    width: 100%;
+                  }
+                </style>
+                <input type="checkbox">
+                <input type="radio" name="rad">
+            </div>
+            <h3 class="Test-it">ne doit pas avoir de marges intérieures</h3>
+            <div class="Test-run Test-run--highlightEl">
+                <input type="checkbox">
+                <input type="radio" name="rad">
+            </div>
+
+            <h2 class="Test-describe">Éléments HTML <code>&lt;textarea&gt;</code></h2>
+            <h3 class="Test-it">doit dessiner la barre de défilement uniquement quand cela est nécessaire</h3>
+            <div class="Test-run">
+                <textarea>textarea</textarea>
+            </div>
+
+            <h2 class="Test-describe">Éléments HTML <code>&lt;select&gt;</code></h2>
+            <h3 class="Test-it">ne doit pas hériter de la casse du texte de son élément parent</h3>
+            <div class="Test-run" style="text-transform:uppercase">
+                <p><select><option>select</option></select></p>
+            </div>
+
+            <h2 class="Test-describe">Pseudo-éléments HTML <code>::placeholder</code></h2>
+            <h3 class="Test-it">doit hériter de la couleur de texte de son élément parent</h3>
+            <div class="Test-run">
+                <p><input placeholder="input (text)" style="color:#6b8e23"></p>
+            </div>
+        </div>
+
+    </body>
+</html>

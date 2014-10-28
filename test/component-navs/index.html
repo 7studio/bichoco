@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, width=device-width">
+<title>Bichoco : tests du composant Navigations</title>
+<link rel="stylesheet" href="test.css">
+<style>
+  .fixture-Box {
+    margin: 0 0 10px;
+    border: 1px solid black;
+    min-height: 50px;
+    background: rgb(107, 142,  35);
+  }
+
+  .dev-highlight {
+    background: yellow;
+  }
+
+  .Test {
+    padding: 0 10px;
+  }
+</style>
+<div class="Test">
+    <h1 class="Test-title">Bichoco&nbsp;: tests du composant <a href="https://github.com/7studio/bichoco/blob/master/src/css/components/navs.css" target="_blank">Navigations</a></h1>
+
+    <h2 class="Test-describe"><code>.nav-list</code></h2>
+    <h3 class="Test-it">Par défaut, affiche les éléments de la navigation de façon verticale</h3>
+    <div class="Test-run">
+
+        <div class="nav">
+            <strong class="nav-name">Navigation principale du site.</strong>
+            <ul class="nav-list">
+                <li><a class="dev-highlight" href="#">Accueil</a></li
+               ><li><a class="dev-highlight" href="#">A propos</a></li
+               ><li><a class="dev-highlight" href="#">Clients</a></li
+               ><li><a class="dev-highlight" href="#">Contactez-nous</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <h2 class="Test-describe"><code>.nav-list--inline</code></h2>
+    <h3 class="Test-it">Affiche les éléments de la navigation de façon horizontale</h3>
+    <div class="Test-run">
+
+        <div class="nav">
+            <strong class="nav-name">Navigation principale du site.</strong>
+            <ul class="nav-list nav-list--inline">
+                <li><a class="dev-highlight" href="#">Accueil</a></li
+               ><li><a class="dev-highlight" href="#">A propos</a></li
+               ><li><a class="dev-highlight" href="#">Clients</a></li
+               ><li><a class="dev-highlight" href="#">Contactez-nous</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <h2 class="Test-describe"><code>.nav-list--separate</code></h2>
+    <h3 class="Test-it">Sépare chaque élément de la navigation par un séparateur défini</h3>
+    <div class="Test-run">
+
+        <div class="nav">
+            <strong class="nav-name">Navigation principale du site.</strong>
+            <ul class="nav-list nav-list--separate">
+                <li><a class="dev-highlight" href="#">Accueil</a></li
+               ><li><a class="dev-highlight" href="#">A propos</a></li
+               ><li><a class="dev-highlight" href="#">Clients</a></li
+               ><li><a class="dev-highlight" href="#">Contactez-nous</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <h2 class="Test-describe"><code>.nav-list--fill</code></h2>
+    <h3 class="Test-it">Réparti les éléments afin qu'ils occupent toute la place disponible et centre leur lien</h3>
+    <div class="Test-run">
+
+        <div class="nav">
+            <strong class="nav-name">Navigation principale du site.</strong>
+            <ul class="nav-list nav-list--fill">
+                <li><a class="dev-highlight" href="#">Accueil</a></li
+               ><li><a class="dev-highlight" href="#">A propos</a></li
+               ><li><a class="dev-highlight" href="#">Clients</a></li
+               ><li><a class="dev-highlight" href="#">Contactez-nous</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <h2 class="Test-describe"><code>.nav-list--stack</code></h2>
+    <h3 class="Test-it">Affiche les éléments de la navigation de façon verticale et affiche leur lien comme un bloc de contenu</h3>
+    <div class="Test-run">
+
+        <div class="nav">
+            <strong class="nav-name">Navigation principale du site.</strong>
+            <ul class="nav-list nav-list--stack">
+                <li><a class="dev-highlight" href="#">Accueil</a></li
+               ><li><a class="dev-highlight" href="#">A propos</a></li
+               ><li><a class="dev-highlight" href="#">Clients</a></li
+               ><li><a class="dev-highlight" href="#">Contactez-nous</a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
