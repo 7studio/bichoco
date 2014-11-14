@@ -24,7 +24,8 @@
 /*
  * 1. Évite tout problème de barre de défilement qui apparaissent puis
  *    disparaissent dans un environnement dynamique.
- * 2. …
+ * 2. Garde la même taille de texte après un changement d'orientation,
+ *    tout en autorisant l'utilisateur à zoomer s'il en a besoin.
  */
 html {
   overflow-y: scroll; /* 1 */

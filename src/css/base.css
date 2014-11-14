@@ -31,14 +31,19 @@ html {
 }
 
 /*
- * 1. …
- *    cf. : http://meyerweb.com/eric/thoughts/2010/02/12/fixed-monospace-sizing/
+ * 1. Aide les navigateurs à appliquer une taille de police identique
+ *    à la famille de polices `monospace` quel que soit le cas d'utilisation.
+ *    cf. :
+ *    - http://meyerweb.com/eric/thoughts/2010/02/12/fixed-monospace-sizing/
+ *    - http://neugierig.org/software/chromium/notes/2009/04/monospace-fonts.html
+ * 2. Permet à IE de suivre correctement le fonctionnement introduit par `1` dans
+ *    le cas particulier où aucune taille de police n'aurait été défini.
  */
 pre,
 code,
 kbd,
 samp {
-  font-size: 1em; /* 1 */
+  font-size: 1em; /* 2 */
   font-family: monospace, sans-serif; /* 1 */
 }
 
