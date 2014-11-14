@@ -1,0 +1,56 @@
+
+/*
+ * @base
+ *
+ * Réinitialisation de l'apparence des éléments HTML
+ * ===
+ *
+ * …
+ */
+
+
+
+fieldset {
+  margin-right: 0;
+  margin-left: 0;
+  border: 0;
+  padding: 0;
+}
+
+/*
+ * 1. Définit de façon arbitraire les marges intérieures des éléments HTML.
+ *    NOTE : Firefox semble appliquer des marges différentes lorsqu'on
+ *    applique la déclaration CSS suivante : `border-style: solid;`.
+ * 2. Hérite de la taille et famille de la police définies par
+ *    le contexte (élément parent).
+ * 3. …
+ */
+input[type=text],
+input[type=password],
+select,
+textarea {
+  border: 1px solid;
+  padding: 1px; /* 1 */
+  font-size: inherit; /* 2 */
+  font-family: inherit; /* 2 */
+  line-height: normal; /* 3 */
+}
+
+/*
+ * 1. Permet à un label adjacent de ne pas être aligné avec le bas
+ *    de l'élément HTML `<textarea>`.
+ * 2. Réduit la possibilité de redimensionner l'élément dans le sens vertical.
+ */
+textarea {
+  vertical-align: text-top; /* 1 */
+  resize: vertical; /* 2 */
+}
+
+/*
+ * 1. Garde-fou pour le cas (possible mais stupide) suivant :
+ *    `input { display: block; }`.
+ *    cf. : http://trac.webkit.org/browser/trunk/Source/WebCore/css/html.css#L410
+ */
+input[type=hidden] {
+  display: none !important; /* 1 */
+}
