@@ -21,13 +21,19 @@
 
 
 /*
- * 1. Spécifie de façon arbitraire certaines bases.
+ * 1. Évite tout problème de barre de défilement qui apparaissent puis
+ *    disparaissent dans un environnement dynamique.
+ * 2. Spécifie de façon arbitraire certaines bases.
  *    cf. : https://github.com/h5bp/html5-boilerplate/pull/1343
+ * 3. Garde la même taille de texte après un changement d'orientation,
+ *    tout en autorisant l'utilisateur à zoomer s'il en a besoin.
  */
 html {
-  color: var(--base-color); /* 1 */
-  font-family: sans-serif; /* 1 */
-  background-color:  var(--base-background-color); /* 1 */
+  overflow-y: scroll; /* 1 */
+  color: var(--base-color); /* 2 */
+  font-family: sans-serif; /* 2 */
+  text-size-adjust: 100%; /* 3 */
+  background-color:  var(--base-background-color); /* 2 */
 }
 
 /*
