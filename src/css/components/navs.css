@@ -26,7 +26,7 @@
  */
 
 :root {
-  --nav-default-separator: "\0A0-\0A0";
+  --nav-separator: "\0A0-\0A0";
 }
 
 
@@ -70,7 +70,7 @@
   vertical-align: top;
 }
 .nav-list--separate > li::after {
-  content: var(--nav-default-separator, "\0A0-\0A0");
+  content: var(--nav-separator);
 }
 .nav-list--separate > li:last-child::after {
   content: normal;

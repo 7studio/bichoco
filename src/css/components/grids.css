@@ -42,7 +42,7 @@
 
 :root {
   --grid-hspacing: 10px;
-  --grid-vspacing: calc(0.5 * var(--base-line-height, 0));
+  --grid-vspacing: 0;
 }
 
 
@@ -110,8 +110,8 @@
   content: "";
 }
 .grid--itemsJustify > .grid-item {
-  font-size: var(--base-font-size, 1rem); /* 4 */
-  line-height: var(--base-line-height, normal); /* 4 */
+  font-size: 1rem; /* 4 */
+  line-height: normal; /* 4 */
 }
 
 /*
@@ -225,27 +225,26 @@
  */
 .grid[css-debug] {
   background: linear-gradient(to right
-   ,rgba(230, 36, 153, .15) 1px
+   ,springgreen 1px
    ,transparent 1px
    ,transparent calc(100% - 2 * var(--grid-hspacing, 0) - 1px)
-   ,rgba(230, 36, 153, .15) calc(100% - 2 * var(--grid-hspacing, 0) - 1px)
-   ,rgba(230, 36, 153, .15) calc(100% - 2 * var(--grid-hspacing, 0))
+   ,springgreen calc(100% - 2 * var(--grid-hspacing, 0) - 1px)
+   ,springgreen calc(100% - 2 * var(--grid-hspacing, 0))
    ,transparent calc(100% - 2 * var(--grid-hspacing, 0))
   );
   background-position: calc(1 * var(--grid-hspacing, 0)) 0;
-  background-size: calc(100% * 1 / 12) auto;
+  background-size: calc(100% * 1 / 12) 100%;
 }
 
 /*
  * Dessine un arrière-plan représentant les colonnes
  * de la grille verticale utilisée.
- *//*
-.grid[css-debug] {
+ */
+.grid[css-debug="alt"] {
   background-image: linear-gradient(to right
    ,transparent calc(2 * var(--grid-hspacing, 0))
-   ,rgba(231, 132, 132, .25) calc(2 * var(--grid-hspacing, 0))
+   ,springgreen calc(2 * var(--grid-hspacing, 0))
   );
   background-position: calc(-1 * var(--grid-hspacing, 0)) 0;
   background-size: calc(100% * 1 / 12) 100%;
 }
-*/
