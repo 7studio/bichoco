@@ -20,10 +20,10 @@
   }
 </style>
 <div class="Test">
-    <h1 class="Test-title">Bichoco&nbsp;: tests du composant <a href="https://github.com/7studio/bichoco/src/css/components/grids.css" target="_blank">Grilles</a></h1>
+    <h1 class="Test-title">Bichoco&nbsp;: tests du composant <a href="https://github.com/7studio/bichoco/blob/master/src/css/components/grids.css" target="_blank">Grilles</a></h1>
 
     <h2 class="Test-describe"><code>.grid</code></h2>
-    <h3 class="Test-it">Dessine par défaut les éléments de grille en fonction de leur contenu</h3>
+    <h3 class="Test-it">dessine par défaut les éléments de grille en fonction de leur contenu</h3>
     <div class="Test-run">
 
         <div class="grid">
@@ -36,7 +36,7 @@
         </div>
 
     </div>
-    <h3 class="Test-it">Retourne à la ligne automatiquement lorsque les éléments de grille ne rentrent pas sur une seule ligne</h3>
+    <h3 class="Test-it">retourne à la ligne automatiquement lorsque les éléments de grille ne rentrent pas sur une seule ligne</h3>
     <div class="Test-run">
 
         <div class="grid">
@@ -67,7 +67,7 @@
         </div>
 
     </div>
-    <h3 class="Test-it">Arrange les éléments de grille de différentes hauteurs en lignes rangées</h3>
+    <h3 class="Test-it">arrange les éléments de grille de différentes hauteurs en lignes rangées</h3>
     <div class="Test-run">
 
         <div class="grid">
@@ -98,7 +98,7 @@
         </div>
 
     </div>
-    <h3 class="Test-it">Supporte les conteneurs de grille imbriqués</h3>
+    <h3 class="Test-it">supporte les conteneurs de grille imbriqués</h3>
     <div class="Test-run">
 
         <div class="grid">
@@ -120,8 +120,8 @@
 
     </div>
 
-    <h2 class="Test-describe"><code>.grid--itemsCenter</code></h2>
-    <h3 class="Test-it">Centre tous les éléments de grille mais pas leur contenu</h3>
+    <h2 class="Test-describe" id="align"><code>.grid--itemsCenter</code></h2>
+    <h3 class="Test-it">centre tous les éléments de grille mais pas leur contenu</h3>
     <div class="Test-run">
 
         <div class="grid grid--itemsCenter">
@@ -139,7 +139,7 @@
     </div>
 
     <h2 class="Test-describe"><code>.grid--itemsRight</code></h2>
-    <h3 class="Test-it">Aligne tous les éléments de grille sur le bord droit du conteneur de grille mais pas leur contenu</h3>
+    <h3 class="Test-it">aligne tous les éléments de grille sur le bord droit du conteneur de grille mais pas leur contenu</h3>
     <div class="Test-run">
 
         <div class="grid grid--itemsRight">
@@ -156,8 +156,8 @@
 
     </div>
 
-    <h2 class="Test-describe"><code>.grid--itemsJustify</code></h2>
-    <h3 class="Test-it">…</h3>
+    <h2 class="Test-describe" id="auto"><code>.grid--itemsJustify</code></h2>
+    <h3 class="Test-it">répartit les éléments de grille de façon à ce qu'ils occupent toute la place disponible</h3>
     <div class="Test-run">
 
         <div class="grid grid--itemsJustify">
@@ -180,8 +180,8 @@
 
     </div>
 
-    <h2 class="Test-describe"><code>.grid--itemsMiddle</code></h2>
-    <h3 class="Test-it">Aligne le milieu des éléments de grille avec le milieu des lettres bas de casse du conteneur de grille</h3>
+    <h2 class="Test-describe" id="valign"><code>.grid--itemsMiddle</code></h2>
+    <h3 class="Test-it">aligne le milieu des éléments de grille avec le milieu des lettres bas de casse du conteneur de grille</h3>
     <div class="Test-run">
 
         <div class="grid grid--itemsMiddle">
@@ -202,7 +202,7 @@
     </div>
 
     <h2 class="Test-describe"><code>.grid--itemsBottom</code></h2>
-    <h3 class="Test-it">Aligne le bas des éléments de grille et de leurs descendants avec le bas de la ligne entière</h3>
+    <h3 class="Test-it">aligne le bas des éléments de grille et de leurs descendants avec le bas de la ligne entière</h3>
     <div class="Test-run">
 
         <div class="grid grid--itemsBottom">
@@ -223,14 +223,14 @@
     </div>
 
     <h2 class="Test-describe"><code>.grid-item--alignCenter</code></h2>
-    <h3 class="Test-it">Centre de façon individuelle un élément de grille mais pas son contenu</h3>
+    <h3 class="Test-it">centre de façon individuelle un élément de grille mais pas son contenu</h3>
     <div class="Test-run">
 
         <div class="grid">
             <div class="grid-item u-size1of2">
                 <div class="fixture-Box">1</div>
             </div
-           ><div class="grid-item u-size1of2">
+           ><div class="grid-item u-size1of3">
                 <div class="fixture-Box">2</div>
             </div
             ><div class="grid-item grid-item--alignCenter u-size3of4">
@@ -241,14 +241,14 @@
     </div>
 
     <h2 class="Test-describe"><code>.grid-item--alignRight</code></h2>
-    <h3 class="Test-it">Aligne de façon individuelle un élément de grille sur le bord droit du conteneur de grille mais pas son contenu</h3>
+    <h3 class="Test-it">aligne de façon individuelle un élément de grille sur le bord droit du conteneur de grille mais pas son contenu</h3>
     <div class="Test-run">
 
         <div class="grid">
             <div class="grid-item u-size1of2">
                 <div class="fixture-Box">1</div>
             </div
-           ><div class="grid-item u-size1of2">
+           ><div class="grid-item u-size1of3">
                 <div class="fixture-Box">2</div>
             </div
            ><div class="grid-item grid-item--alignRight u-size3of4">
@@ -258,8 +258,8 @@
 
     </div>
 
-    <h2 class="Test-describe"><code>.grid--withoutSpacing</code></h2>
-    <h3 class="Test-it">Retire l'espace entre les éléments de grille</h3>
+    <h2 class="Test-describe" id="without-spacing"><code>.grid--withoutSpacing</code></h2>
+    <h3 class="Test-it">retire l'espace entre les éléments de grille</h3>
     <div class="Test-run">
 
         <div class="grid grid--withoutSpacing">
@@ -278,7 +278,7 @@
         </div>
 
     </div>
-    <h3 class="Test-it">Garde l'espace entre les éléments de grille dans un conteneur de grille imbriqué</h3>
+    <h3 class="Test-it">garde l'espace entre les éléments de grille dans un conteneur de grille imbriqué</h3>
     <div class="Test-run">
 
         <div class="grid grid--withoutSpacing">
@@ -308,8 +308,8 @@
 
     </div>
 
-    <h2 class="Test-describe"><code>.grid--reversed</code></h2>
-    <h3 class="Test-it">Renverse l'ordre d'affichage des éléments de grille</h3>
+    <h2 class="Test-describe" id="reversed"><code>.grid--reversed</code></h2>
+    <h3 class="Test-it">renverse l'ordre d'affichage des éléments de grille</h3>
     <div class="Test-run">
 
         <div class="grid grid--reversed">
@@ -328,7 +328,7 @@
         </div>
 
     </div>
-    <h3 class="Test-it">Garde l'ordre d'affichage des éléments de grille dans un conteneur de grille imbriqué</h3>
+    <h3 class="Test-it">garde l'ordre d'affichage des éléments de grille dans un conteneur de grille imbriqué</h3>
     <div class="Test-run">
 
         <div class="grid grid--reversed">
@@ -358,8 +358,8 @@
 
     </div>
 
-    <h2 class="Test-describe"><code>.grid[css-debug]</code></h2>
-    <h3 class="Test-it">Dessine un arrière-plan représentant les bornes intérieures des colonnes de la grille verticale utilisée</h3>
+    <h2 class="Test-describe" id="debug"><code>.grid[css-debug]</code></h2>
+    <h3 class="Test-it">dessine un arrière-plan représentant les bornes intérieures des colonnes de la grille verticale utilisée</h3>
     <div class="Test-run">
 
         <div class="grid" css-debug="grid">
@@ -375,7 +375,7 @@
         </div>
 
     </div>
-    <h3 class="Test-it">Dessine un arrière-plan représentant les colonnes de la grille verticale utilisée</h3>
+    <h3 class="Test-it">dessine un arrière-plan représentant les colonnes de la grille verticale utilisée</h3>
     <div class="Test-run">
 
         <div class="grid" css-debug="gridAlt">
