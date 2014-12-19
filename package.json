@@ -1,0 +1,22 @@
+{
+  "name": "bichoco",
+  "description": "Ça dépend !",
+  "version": "0.1.0",
+  "devDependencies": {
+    "vinyl-fs": "latest",
+    "map-stream": "latest",
+
+    "postcss": "latest",
+    "postcss-import": "latest",
+    "postcss-calc": "latest",
+    "postcss-custom-properties": "latest",
+
+    "strip-css-comments": "7studio/strip-css-comments#feat-preserve",
+
+    "suitcss-components-test": "latest"
+  },
+  "scripts": {
+    "build-test": "npm run setup && node ./test/build.js",
+    "setup": "npm install && mkdir -p build && cp -r test build && rm -f ./build/test/build.js"
+  }
+}
