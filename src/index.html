@@ -39,12 +39,30 @@
                         </ul>
                     </div>
 
-                    <div class="site-organisation" itemscope itemtype="http://schema.org/Organization">
-                        <a href="//{{ site.host }}" itemprop="url">
-                            <img src="{{ client.logo }}" alt="Logo {{ client.name }}" itemprop="logo">
+                    <div class="site-organisation">
+                        <!-- Uniquement sur la page d'accueil -->
+                        <script type="application/ld+json">
+                        {
+                            "@context": "http://schema.org/",
+                            "@type": "Organization",
+                            "url": "{{ site.url }}",
+                            "logo": "{{ client.logo }}",
+                            "legalName": "{{ client.legalName }}",
+                            /*
+                            "sameAs": [
+                                "http://www.facebook.com/your-profile",
+                                "http://www.twitter.com/yourProfile",
+                                "http://plus.google.com/your_profile"
+                            ]
+                            */
+                        }
+                        </script>
+
+                        <a href="{{ site.url }}">
+                            <img src="{{ client.logo }}" alt="Logo {{ client.name }}">
                         </a>
-                        <h1 itemprop="name">{{ client.name }}</h1>
-                        <p itemprop="description">{{ client.description }}</p>
+                        <h1>{{ client.name }}</h1>
+                        <p>{{ client.description }}</p>
                     </div>
 
                     <div class="site-search" id="search">

@@ -17,12 +17,12 @@
 					</ul>
 				</div>
 
-				<div class="site-organisation" itemscope itemtype="http://schema.org/Organization">
-                    <a href="//{{ site.host }}" itemprop="url">
-                        <img src="{{ client.logo }}" alt="Logo {{ client.name }}" itemprop="logo">
+				<div class="site-organisation">
+                    <a href="{{ site.url }}">
+                        <img src="{{ client.logo }}" alt="Logo {{ client.name }}">
                     </a>
-                    <h1 itemprop="name">{{ client.name }}</h1>
-                    <p itemprop="description">{{ client.description }}</p>
+                    <h1>{{ client.name }}</h1>
+                    <p>{{ client.description }}</p>
                 </div>
 
 				{% block content %}{% endblock %}
