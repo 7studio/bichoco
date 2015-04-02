@@ -123,10 +123,14 @@ strong {
 }
 
 /*
- * 1. Spécifie une taille de police homogène dans tous les navigateurs.
+ * 1. Spécifie une taille de police homogène (`≈13px`) dans tous les navigateurs.
+ *    - Safari, Fx, Opera 12 : `81.25%`.
+ *    - IE : `82.875%`.
+ *    - Chrome: `83.33333134651187%`.
  */
 small {
-  font-size: .83em; /* 1 */
+  font-size: .82em; /* 1 */
+  font-size: calc(1em * .8125); /* 1 */
 }
 
 /*
@@ -142,11 +146,13 @@ abbr[title] {
 /*
  * 1. Redéfinit la taille de police pour être similaire
  *    à l'élément HTML `<small>`.
+ *    Seul IE n'applique pas ce comportement par défaut.
  * 2. Empêche l'interligne inégal des lignes.
  */
 sub,
 sup {
-  font-size: .83em; /* 1 */
+  font-size: .82em; /* 1 */
+  font-size: calc(1em * .8125); /* 1 */
   line-height: 0; /* 2 */
 }
 
