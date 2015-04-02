@@ -60,6 +60,7 @@ hr {
   margin-top: 0;
   margin-bottom: 0;
   border-width: 1px 0 0; /* 1 */
+  border-style: solid;
 }
 
 h1,
